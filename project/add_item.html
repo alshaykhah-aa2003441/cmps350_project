@@ -9,30 +9,32 @@
 <body>
   <header>
     <div>
-        <a href="#"><img src="icons/4f7489062aa5c4c112943f402d29373c.jpg" alt="logo"></a>
+      <a href="#"><img src="icons/4f7489062aa5c4c112943f402d29373c.jpg" alt="logo"></a>
     </div>
     <h1>ECO Commerce</h1>
   </header>
   <main>
-    <h2>Upload New Item</h2>
-    <form class="upload-form">
-      <label for="item-name">Item Name:</label>
-      <input type="text" id="item-name" name="item-name" required>
+    <div class="Uploadcontainer">
+      <h2>Upload New Item</h2>
+      <form class="upload-form">
+        <label for="item-name">Item Name:</label>
+        <input type="text" id="item-name" name="item-name" required>
 
-      <label for="price">Price:</label>
-      <input type="number" id="price" name="price" min="0" required>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" min="0" required>
 
-      <label for="quantity">Available Quantity:</label>
-      <input type="number" id="quantity" name="quantity" min="0" required>
+        <label for="quantity">Available Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="0" required>
 
-      <label for="details">Details:</label>
-      <textarea id="details" name="details" required></textarea>
+        <label for="details">Details:</label>
+        <textarea id="details" name="details" required></textarea>
 
-      <label for="image">Image:</label>
-      <input type="file" id="itemimage" name="image" accept="image/*" required>
+        <label for="image">Image:</label>
+        <input type="file" id="itemimage" name="image" accept="image/*" required>
 
-      <button type="submit"  class="submitbutton">Upload Item</button>
-    </form>
+        <button type="submit" class="submitbutton">Upload Item</button>
+      </form>
+    </div>
   </main>
   <footer>
     <ul class="social-icons">

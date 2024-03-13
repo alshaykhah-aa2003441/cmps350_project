@@ -135,63 +135,80 @@ footer {
 .login-button:active {
     background-color: var(--color-link-active);
 }
-.address{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
+.Purchasecontainer {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: var(--color-link-hover);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
 .address textarea,
 .address input[type="text"] {
-    height: 30%;
+    width: calc(100% - 22px);
     padding: 10px;
     margin: 8px 0;
     border: 1px solid var(--color-link-active);
     border-radius: 4px;
     box-sizing: border-box;
-}
-.submitbutton{
-    width: 15%;
-    background-color: var(--color-link); 
-    color: white; 
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 8px;
-
-}
-.details_button{
-    width: 15%;
-    background-color: var(--color-link); 
-    color: white; 
-    padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 8px;
-}
-.details_button:hover {
-    background-color: var(--color-link-hover); 
   }
-.itemimage{
-    margin-top: 20px;
-    margin-bottom: 20px;
+  
+.submitbutton {
+    width: 40%;
+    background-color: var(--color-link);
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
 }
-.upload-form{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
+.submitbutton:hover {
+    background-color: var(--color-link-active);
 }
+  
+.Uploadcontainer {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: var(--color-link-hover);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
 .upload-form input[type="text"],
 .upload-form input[type="number"],
 .upload-form textarea {
-    height: 30%;
+    width: calc(100% - 22px);
     padding: 10px;
     margin: 8px 0;
     border: 1px solid var(--color-link-active);
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
-
+/*   
+.upload-form input[type="file"] {
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    background-color: transparent;
+} */
+.submitbutton {
+    width: 100%;
+    background-color: var(--color-link);
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+}
+  
+.submitbutton:hover {
+    background-color: var(--color-link-active);
+}
 @media screen and (max-width: 599px) {
     
 }
