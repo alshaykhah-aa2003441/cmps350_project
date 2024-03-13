@@ -159,6 +159,39 @@ footer {
     border-radius: 8px;
 
 }
+.details_button{
+    width: 15%;
+    background-color: var(--color-link); 
+    color: white; 
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+}
+.details_button:hover {
+    background-color: var(--color-link-hover); 
+  }
+.itemimage{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.upload-form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.upload-form input[type="text"],
+.upload-form input[type="number"],
+.upload-form textarea {
+    height: 30%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid var(--color-link-active);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px
+}
+
 @media screen and (max-width: 599px) {
     
 }
