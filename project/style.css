@@ -239,10 +239,11 @@ footer {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
   
-.submitbutton:hover {
+.uploaditembutton:hover {
     background-color: var(--color-link-active);
     transform: translateY(-3px);
 }
+
 @media screen and (max-width: 599px) {
     /* iphone xr */
     .item_list {
