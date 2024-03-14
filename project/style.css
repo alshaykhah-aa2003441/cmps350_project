@@ -1,41 +1,51 @@
 @media screen and (prefers-color-scheme: light) {
     :root {
-        --color-text: #858585; 
-        --color-background: #eeedeb; 
+        --color-text: #d1cece; 
+        --color-background: white; 
         --color-link: #F89b59; 
-        --color-link-hover: #a3c4cc; 
-        --color-link-active:#294664 ; 
+        --color-link-hover: #b6e7f3; 
+        --color-link-active:#48729e ; 
+        --color-text2: #214d7b; 
     }
   }
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --color-text: #eeedeb; 
-        --color-background: #294664; 
+        --color-text: white; 
+        --color-text2: #112942; 
+        --color-background: #48729e; 
         --color-link: #F89b59; 
-        --color-link-hover: #a3c4cc; 
-        --color-link-active:#858585 ; 
+        --color-link-hover: #b6e7f3; 
+        --color-link-active:#d1cece ; 
         
     }
 }
 header {
-    background-color:var(--color-link-active);
-    color:var(--color-text);
+    background-color: var(--color-link-active);
+    color: var(--color-text);
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; 
     align-items: center;
 }
-
-.header-content form {
-    margin: 0; 
-}
 #search-form {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
     width: 100%;
-    max-width: 600px; 
-    margin: 0 auto; 
+    max-width: 400px;  
+    margin-right: 17rem; 
 }
-
+#search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 body {
+    color:var(--color-text2);;
+    background-color: var(--color-background);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -54,15 +64,23 @@ nav ul li {
     display: inline;
     margin-right: 20px;
 }
-.login{
+.login {
     text-align: center;
-    border-radius: 25px; 
+    border-radius: 30px; 
     border: 1px solid var(--color-link);
     background-color: var(--color-link);
     padding: 15px 30px;
-    width: 43px; 
-    height: 16px;
+    width: 45px; 
+    height: 25px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
+
+.login:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
 
 nav ul li a {
     color: #fff;
@@ -74,15 +92,22 @@ main {
 }
 
 .item_list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
+    padding: 20px;
 }
 
 .item_card {
-    width: 300px;
     border: 1px solid #ccc;
     padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out; 
+}
+.item_card:hover {
+    transform: translateY(-5px); 
 }
 
 .item_card img {
@@ -126,10 +151,14 @@ footer {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-  
+
 .login-button:hover {
     background-color: var(--color-text);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
 }
   
 .login-button:active {
@@ -154,19 +183,22 @@ footer {
     box-sizing: border-box;
   }
   
-.submitbutton {
-    width: 40%;
+.CompletePurchasebutton {
+    width: 30%;
     background-color: var(--color-link);
     color: white;
     padding: 10px;
     margin: 8px 0;
     border: none;
     border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.submitbutton:hover {
+
+.CompletePurchasebutton:hover {
     background-color: var(--color-link-active);
+    transform: translateY(-3px);
 }
-  
+
 .Uploadcontainer {
     max-width: 600px;
     margin: 100px auto;
@@ -196,7 +228,7 @@ footer {
     border: none;
     background-color: transparent;
 } */
-.submitbutton {
+.uploaditembutton {
     width: 100%;
     background-color: var(--color-link);
     color: white;
@@ -204,12 +236,19 @@ footer {
     margin: 8px 0;
     border: none;
     border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
   
 .submitbutton:hover {
     background-color: var(--color-link-active);
+    transform: translateY(-3px);
 }
 @media screen and (max-width: 599px) {
+    /* iphone xr */
+    .item_list {
+        grid-template-columns: repeat(1, 1fr); 
+        padding: 10px; 
+    }
     
 }
 @media screen and (min-width: 600px) and (max-width: 1799px) {
