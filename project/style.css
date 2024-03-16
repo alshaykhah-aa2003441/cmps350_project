@@ -27,6 +27,20 @@ header {
     justify-content: flex-start; 
     align-items: center;
 }
+.search-button{
+    width: 20%;
+    background-color: var(--color-link);
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.search-button:hover{
+    transform: translateY(-3px);
+
+}
 #search-form {
     display: flex;
     flex-direction: column; 
@@ -121,8 +135,25 @@ footer {
     padding: 10px;
     text-align: center;
 }
-.social-icons a {
-    margin-right: 10px;
+.seller-btn button {
+    border: none;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    background-color: var(--color-link); 
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.seller-btn button:hover {
+    transform: translateY(-3px);
+}
+
+.social-icons img {
+    width: 40px; 
+    height: 30px; 
+    padding: 5px; 
+    display: inline-block;
+    margin-right: 1rem; 
 }
 .logincontainer {
     max-width: 400px;
@@ -243,6 +274,53 @@ footer {
     background-color: var(--color-link-active);
     transform: translateY(-3px);
 }
+.history-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+.history-container h1 {
+    text-align: center;
+  }
+
+#salesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+#salesTable th,
+#salesTable td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+.seller-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh ;
+  }
+.dashboard-button {
+    width: 100%;
+    background-color: var(--color-link);
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.dashboard-button:hover {
+    background-color: var(--color-link-active);
+    transform: translateY(-3px);
+}
+  
+.seller-container h1 {
+    text-align: center;
+    color: var(--color-text2);
+    
+  }
 
 @media screen and (max-width: 599px) {
     /* iphone xr */
