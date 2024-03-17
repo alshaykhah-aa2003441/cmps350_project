@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     const loginForm = document.getElementById("loginForm");
     loginForm.addEventListener("submit", async function(event) {
         event.preventDefault(); 
@@ -13,9 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Invalid username or password. Please try again.");
         }
     });
+
     const cancelButton = document.querySelector(".cancel-button");
     cancelButton.addEventListener("click", function() {
         document.getElementById("username").value = "";
         document.getElementById("password").value = "";
     });
+
 });
+
