@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         const response = await fetch("javascript/users.json");
+
         const usersData = await response.json();
         const matchedUser = usersData.find(user => user.username === username && user.password === password);
         if (matchedUser) {
@@ -20,5 +21,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById("password").value = "";
     });
 
+    const user = JSON 
 });
 

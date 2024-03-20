@@ -13,7 +13,12 @@
       "name": "Pants",
       "price": 70,
       "image": "icons/sv13100_tauw_0.webp"
+    },
+    {
+      "name": "Sunglasses",
+      "price": 25,
+      "image":"icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp"
     }
-    
+  
   ]
   
