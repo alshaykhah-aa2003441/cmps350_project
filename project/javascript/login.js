@@ -7,12 +7,16 @@ document.addEventListener("DOMContentLoaded", async function() {
         const response = await fetch("javascript/users.json");
 
         const usersData = await response.json();
+        
         const matchedUser = usersData.find(user => user.username === username && user.password === password);
         if (matchedUser) {
              window.location.href = "index.html";
         } else {
             alert("Invalid username or password. Please try again.");
         }
+        const user = JSON.parse(usersData)
+        user.push(username, password)
+        fs.writeFileSync('users.json', JSON.stringify(user))
     });
 
     const cancelButton = document.querySelector(".cancel-button");
@@ -21,6 +25,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById("password").value = "";
     });
 
-    const user = JSON 
+    
 });
 
