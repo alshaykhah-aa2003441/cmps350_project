@@ -8,10 +8,12 @@
 </head>
 <body>
   <header>
+    
     <div>
-      <img src="icons/1211836.webp" alt="logo">
-    </div>
-    <h1>ARO Commerce</h1>
+      logo
+      <h1>ARO Commerce</h1>
+  </div>
+
   </header>
   <main>
     <div class="Uploadcontainer">
@@ -30,9 +32,12 @@
         <textarea id="details" name="details" required></textarea>
 
         <label for="image">Image:</label>
+        
         <input type="file" id="itemimage" name="image" accept="image/*" required>
 
         <button type="submit" class="uploaditembutton">Upload Item</button>
+        <form class="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
+
       </form>
     </div>
   </main>
