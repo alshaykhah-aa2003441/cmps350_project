@@ -28,7 +28,7 @@ header {
     align-items: center;
 }
 .search-button{
-    width: 20%;
+    /* width: 20%; */
     background-color: var(--color-link);
     color: white;
     padding: 10px;

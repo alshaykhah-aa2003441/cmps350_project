@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seller Dashboard</title>
   <link rel="stylesheet" href="style.css"> 
+  <script src="javascript/sellerHistory.js"></script>
 </head>
 <body>
   <header>
@@ -21,19 +22,20 @@
         <li data-id="1">
           <span class="product-name">Product 1</span>
           <span class="price">$50.00</span>
-          <a href="purchase_history.html" class="details_button">Purches History</a>
+          <a href="purchase_history.html" class="details_button">Purchase History</a>
         </li>
       </ul>
     </section>
     <section class="sale-history">
       <h2>Sale History</h2>
-      <ul class="history-list">
+        <table id="salesTable"></table>
+      <!-- <ul class="history-list">
         <li data-id="1">
           <span class="product-name">Product 1</span>
           <span class="sold-to">Sold to: Username1</span>
           <span class="selling-price">$50.00</span>
         </li>
-      </ul>
+      </ul> -->
     </section>
   </main>
   <footer>

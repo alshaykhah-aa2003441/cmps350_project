@@ -33,11 +33,17 @@ document.addEventListener("DOMContentLoaded", async function() {
     
             const buyButton = document.createElement('button');
             buyButton.textContent = 'Buy item';
-            
+
             // if the customr is not logged in, this should take him/her to the login page
             buyButton.addEventListener("click",handleBuyingItem);
-            function handleBuyingItem(){
-                window.location.href="login.html"
+            function handleBuyingItem(event){
+                event.preventDefault()
+                const isLoggedIn = sessionStorage.getItem('isLoggedIn')
+                if (!isLoggedIn)
+                    window.location.href="login.html"
+                else
+                    window.location.href = 'purchase.html'
+                localStorage.setItem('selectedItem', JSON.stringify(item))
             }
 
             const cart= document.querySelector('#cart')

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         const balance = document.getElementById("balance").value; 
-        const response = await fetch("users.json");
+        const response = await fetch("javascript/users.json");
         const usersData = await response.json();
         
         const matchedUser = usersData.find(user => user.username === username && user.password === password);
@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                     "Content-Type": "application/json"
                 }
             });
+            sessionStorage.setItem('isLoggedIn', true)
+            sessionStorage.setItem('username', username)
             window.location.href = "index.html";
         } else {
             alert("Invalid username or password. Please try again.");
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById("password").value = "";
         document.getElementById("balance").value = ""; 
         document.getElementById("balance").classList.add("hidden"); 
+        window.location.href = "index.html";
     });
 
     loginForm.addEventListener("submit", function() {

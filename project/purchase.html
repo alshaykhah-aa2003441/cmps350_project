@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Purchase Details</title>
   <link rel="stylesheet" href="style.css"> 
+  <script src="javascript/purchase.js"></script>
 </head>
 <body>
   <header>
@@ -17,8 +18,9 @@
   <main>
     <div class="Purchasecontainer">
       <h1>Purchase Details</h1>
-      <p>Item: <span id="product-name"></span></p>
-      <p>Price: <span id="product-price"></span></p>
+      <div id="item-details"></div>
+      <!-- <p>Item: <span id="product-name"></span></p>
+      <p>Price: <span id="product-price"></span></p> -->
       <label for="quantity">Quantity:</label>
       <input type="number" id="quantity" name="quantity" min="1" required>
       <h2>Shipping Address</h2>
