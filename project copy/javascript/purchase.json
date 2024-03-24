@@ -1,0 +1,34 @@
+[
+    {
+      "username": "user1",
+      "purchaseDetails": [
+        {
+          "itemName": "T-Shirt",
+          "quantity": 2,
+          "totalPrice": 100.0,
+          "shippingAddress": "123 Street, CityA"
+          
+        },
+        {
+            "itemName": "Shoes",
+            "quantity": 1,
+            "totalPrice": 50.0,
+            "shippingAddress": "123 Street, CityA"
+            
+          }
+        
+      ]
+    },
+    {
+      "username": "user2",
+      "purchaseDetails": [
+        {
+          "itemName": "Shoes ",
+          "quantity": 3,
+          "totalPrice": 180.0,
+          "shippingAddress": "789 Road, CityC"
+          
+        }
+      ]
+    }
+  ]

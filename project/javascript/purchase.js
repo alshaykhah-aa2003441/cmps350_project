@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('saleHistory', JSON.stringify(saleHistory))
         saleHistory.push(purchaseData)
+
+
         localStorage.setItem('saleHistory', JSON.stringify(saleHistory))
 
         alert("Successful Purchase")
@@ -39,4 +41,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     })
 })
-

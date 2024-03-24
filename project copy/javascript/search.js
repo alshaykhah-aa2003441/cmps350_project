@@ -33,24 +33,11 @@ document.addEventListener("DOMContentLoaded", async function() {
     
             const buyButton = document.createElement('button');
             buyButton.textContent = 'Buy item';
-
-            // if the customr is not logged in, this should take him/her to the login page
-            buyButton.addEventListener("click",handleBuyingItem);
-            function handleBuyingItem(event){
-                event.preventDefault()
-                const isLoggedIn = sessionStorage.getItem('isLoggedIn')
-                if (!isLoggedIn)
-                    window.location.href="login.html"
-                else
-                    window.location.href = 'purchase.html'
-                localStorage.setItem('selectedItem', JSON.stringify(item))
-            }
-
-            const cart= document.querySelector('#cart')
-            cart.addEventListener("click",handleShoppingCart);
-            function handleShoppingCart(){
-                window.location.href="purchase.html"
-            }
+            
+            // Call handlePurchaseRedirect when Buy button is clicked
+            buyButton.addEventListener("click", function() {
+                handlePurchaseRedirect(item);
+            });
 
             itemCard.appendChild(itemImg);
             itemCard.appendChild(itemName);
@@ -60,6 +47,18 @@ document.addEventListener("DOMContentLoaded", async function() {
             itemList.appendChild(itemCard);
         });
     }
+
+    function handlePurchaseRedirect(item) {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser && currentUser.loggedIn) {
+            // Store selected item in localStorage
+            localStorage.setItem('selectedItem', JSON.stringify(item));
+            window.location.href = "purchase.html";
+        } else {
+            window.location.href = "login.html";
+        }
+    }
+
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', function() {
         logoutUser();
@@ -80,5 +79,4 @@ document.addEventListener("DOMContentLoaded", async function() {
         alert("Logout successful!");
         window.location.href = "index.html";
     }
-    
 });
