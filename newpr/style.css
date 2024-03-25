@@ -163,16 +163,15 @@ footer {
     padding: 10px;
     text-align: center;
 }
-
 .footer-buttons {
     display: flex;
     justify-content:center;
     gap: 10px;
 }
-
 .seller-btn button,
 .logout-btn button,
-.admin-btn button {
+.admin-btn button,
+.cutomerhistory-btn button {
     border: none;
     padding: 10px;
     margin: 8px 0;
@@ -184,10 +183,10 @@ footer {
 
 .seller-btn button:hover,
 .logout-btn button:hover,
-.admin-btn button:hover  {
+.admin-btn button:hover,
+.cutomerhistory-btn button:hover  {
     transform: translateY(-3px);
 }
-
 .social-icons img {
     width: 40px; 
     height: 30px; 
@@ -267,20 +266,21 @@ footer {
     background-color: var(--color-link-hover);
     border-radius: 8px;
     text-align: center;
-  }
-  
-.purchaseForm textarea,
-.purchaseForm input[type="text"],
-.purchaseForm input[type="tel"]  {
+}
+
+.purchaseform textarea,
+.purchaseform input[type="text"],
+.purchaseform input[type="number"],
+.purchaseform input[type="tel"] {
     width: calc(100% - 22px);
-    padding: 10px;
+    padding: 6px; /* smaller padding */
     margin: 8px 0;
     border: 1px solid var(--color-link-active);
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 14px; /* smaller font size */
 }
 
-  
 .CompletePurchasebutton {
     width: 30%;
     background-color: var(--color-link);
@@ -348,18 +348,26 @@ footer {
 .history-container h1 {
     text-align: center;
   }
-
-#salesTable {
+#itemforsaleh2{
+    text-align: center;
+}
+#salesTable,
+#itemsTable {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    color: var(--color-link);
 }
 
 #salesTable th,
-#salesTable td {
+#salesTable td,
+#itemsTable th,
+#itemsTable td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+    text-align: center;
+
 }
 .seller-container {
     display: flex;
@@ -401,6 +409,7 @@ footer {
    
      
 }
+
 .hidden {
     display: none;
 }
