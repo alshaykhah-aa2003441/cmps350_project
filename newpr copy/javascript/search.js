@@ -96,19 +96,19 @@ document.addEventListener("DOMContentLoaded", function() {
         displayItems(filteredItems); 
     }
 
-    // const addItemForm = document.getElementById('add-item-form');
-    // addItemForm.addEventListener('submit', handleAddItem);
+    const addItemForm = document.getElementById('add-item-form');
+    addItemForm.addEventListener('submit', handleAddItem);
 
 
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', logoutUser);
-    function logoutUser() {
-        sessionStorage.removeItem('id');
-        sessionStorage.removeItem('username');
 
+    function logoutUser() {
+        localStorage.setItem('isLoggedIn', false);
         alert("Logout successful!");
         window.location.href = "index.html";
     }
+
 
 });
 

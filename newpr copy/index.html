@@ -14,15 +14,19 @@
             logo
             <h1>ARO Commerce</h1>
         </div>
-
+        <div class="search-bar">
         <form id="search-form">
             <input type="text" id="search-input" placeholder="Enter search keywords...">
             <button type="submit" class="search-button">Search</button>
         </form>
+        </div>
 
         <nav  id="main-pageNav">
             <ul>
                 <li class="login"><a href="login.html">Login</a></li>
+                <div class="logout-btn">
+                    <button id="logoutButton">Logout</button>
+                </div>
                 <li id="cart">
                     <img src="icons/1211836.webp" alt="logo">
                     <p>cart</p>
@@ -43,7 +47,7 @@
                 <img src="icons/blank-1886008_640.webp" alt="Product 1">
                 <h3>item 1</h3>
                 <p>$50.00</p>
-                <button>Buy item</button>
+                <button class: buy-button>Buy item</button>
             </div>
             <div class="item_card">
                 <img src="icons/blank-1886008_640.webp" alt="Product 1">
@@ -80,18 +84,16 @@
             <a href="youtube.com"><img src="icons/brand-youtube.svg" alt="YouTube"></a>
             <a href="pinterest.com"><img src="icons/brand-pinterest.svg" alt="Pinterest"></a>
         </ul>
-        <p class="copyright">Copyright &copy; 2021–2024 ARO essentials, Inc. </p>
         <div class="footer-buttons">
-            <div class="seller-btn">
+            <!-- <div class="seller-btn">
                 <a href="seller.html" ><button>Seller</button></a>
+            </div>-->
+            <div class="cutomerhistory-btn">
+                <a href="purchase_history.html" ><button>Purchase History</button></a>
+            </div> 
+            
             </div>
-            <div class="admin-btn">
-                <button id="AdminButton">Admin</button>
-            </div>
-            <div class="logout-btn">
-                <button id="logoutButton">Logout</button>
-            </div>
-            </div>
+            <p class="copyright">Copyright &copy; 2021–2024 ARO essentials, Inc. </p>
     </footer>
 </body>
 </html>
