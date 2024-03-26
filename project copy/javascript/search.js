@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
     let items = [];
-    const response = await fetch("jsons/items.json");
+    const response = await fetch("javascript/items.json");
     items = await response.json();
     displayItems(items);
    
@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     
             const buyButton = document.createElement('button');
             buyButton.textContent = 'Buy item';
-            buyButton.classList.add('buy-button'); 
 
             // if the customr is not logged in, this should take him/her to the login page
             buyButton.addEventListener("click",handleBuyingItem);

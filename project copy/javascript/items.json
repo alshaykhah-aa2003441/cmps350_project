@@ -1,0 +1,24 @@
+[
+    {
+      "name": "T-Shirt ",
+      "price": 50,
+      "image": "icons/blank-1886008_640.webp"
+    },
+    {
+      "name": "Shoes",
+      "price": 60,
+      "image": "icons/adidas-dame-8.webp"
+    },
+    {
+      "name": "Pants",
+      "price": 70,
+      "image": "icons/sv13100_tauw_0.webp"
+    },
+    {
+      "name": "Sunglasses",
+      "price": 25,
+      "image":"icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp"
+    }
+  
+  ]
+  

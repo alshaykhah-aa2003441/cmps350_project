@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase Details</title>
+  <link rel="stylesheet" href="style.css"> 
+  <script src="javascript/purchase.js"></script>
+</head>
+<body>
+  <header>
+    
+    <div>
+      logo
+      <h1>ARO Commerce</h1>
+  </div>
+  </header>
+  <main>
+    <div class="Purchasecontainer">
+      <h1>Purchase Details</h1>
+      <div id="item-details"></div>
+      <!-- <p>Item: <span id="product-name"></span></p>
+      <p>Price: <span id="product-price"></span></p> -->
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" required>
+      <h2>Shipping Address</h2>
+      <form class="address">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" required></textarea>
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" required>
+        <label for="zip">Zip Code</label>
+        <input type="text" id="zip" name="zip" required>
+        <button type="submit" class="CompletePurchasebutton">Complete Purchase</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <ul class="social-icons">
+        <a href="facebook.com"><img src="icons/facebook.svg" alt="Facebook"></a>
+        <a href="twitter.com"><img src="icons/brand-x.svg" alt="X"></a>
+        <a href="instagram.com"><img src="icons/instagram.svg" alt="Instagram"></a>
+        <a href="linkedin.com"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="youtube.com"><img src="icons/brand-youtube.svg" alt="YouTube"></a>
+        <a href="pinterest.com"><img src="icons/brand-pinterest.svg" alt="Pinterest"></a>
+    </ul>
+    <p class="copyright">Copyright &copy; 2021–2024 ECO essentials, Inc. </p>
+  </footer>
+</body>
+</html>

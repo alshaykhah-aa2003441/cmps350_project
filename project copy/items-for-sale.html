@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Item</title>
+  <title>Seller Dashboard</title>
   <link rel="stylesheet" href="style.css"> 
+  <script src="javascript/sellerHistory.js"></script>
 </head>
 <body>
   <header>
@@ -13,30 +14,29 @@
       logo
       <h1>ARO Commerce</h1>
   </div>
-
   </header>
   <main>
-    <div class="Uploadcontainer">
-      <h2>Upload New Item</h2>
-      <form class="upload-form">
-        <label for="item-name">Item Name:</label>
-        <input type="text" id="item-name" name="item-name" required>
-
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" min="0" required>
-
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="0" required>
-
-        <label for="image">Image:</label>
-        
-        <input type="file" id="itemimage" name="image" accept="image/*" required>
-
-        <button type="submit" class="uploaditembutton">Upload Item</button>
-        <form class="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
-
-      </form>
-    </div>
+    <section class="items-for-sale">
+      <h2>Items for Sale</h2>
+      <ul class="item-list">
+        <li data-id="1">
+          <span class="product-name">Product 1</span>
+          <span class="price">$50.00</span>
+          <a href="purchase_history.html" class="details_button">Purchase History</a>
+        </li>
+      </ul>
+    </section>
+    <section class="sale-history">
+      <h2>Sale History</h2>
+        <table id="salesTable"></table>
+      <!-- <ul class="history-list">
+        <li data-id="1">
+          <span class="product-name">Product 1</span>
+          <span class="sold-to">Sold to: Username1</span>
+          <span class="selling-price">$50.00</span>
+        </li>
+      </ul> -->
+    </section>
   </main>
   <footer>
     <ul class="social-icons">

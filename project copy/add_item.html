@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Item</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+  <header>
+    
+    <div>
+      logo
+      <h1>ARO Commerce</h1>
+  </div>
+
+  </header>
+  <main>
+    <div class="Uploadcontainer">
+      <h2>Upload New Item</h2>
+      <form class="upload-form">
+        <label for="item-name">Item Name:</label>
+        <input type="text" id="item-name" name="item-name" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" min="0" required>
+
+        <label for="quantity">Available Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="0" required>
+
+        <label for="details">Details:</label>
+        <textarea id="details" name="details" required></textarea>
+
+        <label for="image">Image:</label>
+        
+        <input type="file" id="itemimage" name="image" accept="image/*" required>
+
+        <button type="submit" class="uploaditembutton">Upload Item</button>
+        <form class="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
+
+      </form>
+    </div>
+  </main>
+  <footer>
+    <ul class="social-icons">
+        <a href="facebook.com"><img src="icons/facebook.svg" alt="Facebook"></a>
+        <a href="twitter.com"><img src="icons/brand-x.svg" alt="X"></a>
+        <a href="instagram.com"><img src="icons/instagram.svg" alt="Instagram"></a>
+        <a href="linkedin.com"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="youtube.com"><img src="icons/brand-youtube.svg" alt="YouTube"></a>
+        <a href="pinterest.com"><img src="icons/brand-pinterest.svg" alt="Pinterest"></a>
+    </ul>
+    <p class="copyright">Copyright &copy; 2021–2024 ECO essentials, Inc. </p>
+  </footer>
+</body>
+</html>
