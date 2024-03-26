@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Item</title>
+  <title>Purchase History</title>
   <link rel="stylesheet" href="style.css"> 
+  <script src="javascript/purchase_history.js"></script>
 </head>
 <body>
   <header>
@@ -13,30 +15,35 @@
       logo
       <h1>ARO Commerce</h1>
   </div>
-
   </header>
   <main>
-    <div class="Uploadcontainer">
-      <h2>Upload New Item</h2>
-      <form class="upload-form">
-        <label for="item-name">Item Name:</label>
-        <input type="text" id="item-name" name="item-name" required>
-
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" min="0" required>
-
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="0" required>
-
-        <label for="image">Image:</label>
-        
-        <input type="file" id="itemimage" name="image" accept="image/*" required>
-
-        <button type="submit" class="uploaditembutton">Upload Item</button>
-        <form class="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
-
-      </form>
-    </div>
+  <div class="history-container">
+    <h1>Purchase History</h1>
+    <table id="salesTable">
+      <!-- <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Quantity Sold</th>
+          <th>Buyer Username</th>
+          <th>Selling Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Item 1</td>
+          <td>2</td>
+          <td>buyer1</td>
+          <td>$20.00</td>
+        </tr>
+        <tr>
+          <td>Item 2</td>
+          <td>1</td>
+          <td>buyer2</td>
+          <td>$15.00</td>
+        </tr>
+      </tbody> -->
+    </table>
+  </div>
   </main>
   <footer>
     <ul class="social-icons">
@@ -50,4 +57,5 @@
     <p class="copyright">Copyright &copy; 2021–2024 ECO essentials, Inc. </p>
   </footer>
 </body>
+
 </html>

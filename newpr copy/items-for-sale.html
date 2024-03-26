@@ -3,40 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Item</title>
+  <title>Seller Dashboard</title>
   <link rel="stylesheet" href="style.css"> 
+  <script src="javascript/item-for-sale.js"></script>
 </head>
 <body>
-  <header>
-    
+  <header>  
     <div>
       logo
       <h1>ARO Commerce</h1>
   </div>
-
   </header>
   <main>
-    <div class="Uploadcontainer">
-      <h2>Upload New Item</h2>
-      <form class="upload-form">
-        <label for="item-name">Item Name:</label>
-        <input type="text" id="item-name" name="item-name" required>
-
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" min="0" required>
-
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="0" required>
-
-        <label for="image">Image:</label>
-        
-        <input type="file" id="itemimage" name="image" accept="image/*" required>
-
-        <button type="submit" class="uploaditembutton">Upload Item</button>
-        <form class="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
-
-      </form>
-    </div>
+      <h2 id="itemforsaleh2">Items for Sale</h2>
+      <table id="itemsTable"></table>
+      <ul class="item-list">
+        <li data-id="1">
+          <!-- <span class="product-name">Product 1</span>
+          <span class="price">$50.00</span> -->
+        </li>
+      </ul>
   </main>
   <footer>
     <ul class="social-icons">

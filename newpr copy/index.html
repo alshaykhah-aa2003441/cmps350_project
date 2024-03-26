@@ -4,39 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="style1.css"> 
+    <link rel="stylesheet" href="style.css"> 
     <script src="javascript/search.js"></script>
 </head>
 <body>
-   <header>
-    <div class="logo-nav">
-        <div class="logo">
-            <img src="your-logo.png" alt="ARO Commerce">
+    <header>
+        
+        <div>
+            logo
+            <h1>ARO Commerce</h1>
         </div>
-        <nav class="main-nav">
-            <!-- <ul>
-                <li class="dropdown">
-                    <a href="#">Departments &#9662;</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Electronics</a></li>
-                        <li><a href="#">Clothing</a></li>
-                        <li><a href="#">Books</a></li>
-                        <!-- Add more department options as needed -->
-                    <!-- </ul>
-                </li>
-                <li><a href="#">Account & Lists</a></li>
-                <li><a href="#">Orders</a></li>
-                <li id="cart"><a href="#"><img src="icons/1211836.webp" alt="Cart"></a></li> --> -->
-            </ul>
-        </nav>
-    </div>
-    <div class="search-bar">
+
         <form id="search-form">
-            <input type="text" id="search-input" placeholder="Search for products...">
+            <input type="text" id="search-input" placeholder="Enter search keywords...">
             <button type="submit" class="search-button">Search</button>
         </form>
-    </div>
-</header>
+
+        <nav  id="main-pageNav">
+            <ul>
+                <li class="login"><a href="login.html">Login</a></li>
+                <li id="cart">
+                    <img src="icons/1211836.webp" alt="logo">
+                    <p>cart</p>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
     <main>
         <div class="item_list">
             <!-- <div class="item_card">
@@ -88,12 +82,12 @@
         </ul>
         <p class="copyright">Copyright &copy; 2021–2024 ARO essentials, Inc. </p>
         <div class="footer-buttons">
-            <div class="seller-btn">
+            <!-- <div class="seller-btn">
                 <a href="seller.html" ><button>Seller</button></a>
-            </div>
-            <div class="admin-btn">
-                <button id="AdminButton">Admin</button>
-            </div>
+            </div>-->
+            <div class="cutomerhistory-btn">
+                <a href="purchase_history.html" ><button>Purchase History</button></a>
+            </div> 
             <div class="logout-btn">
                 <button id="logoutButton">Logout</button>
             </div>
