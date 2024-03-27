@@ -68,15 +68,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
             function handleBuyingItem(event) {
                 event.preventDefault();
-                const isLoggedIn = localStorage.getItem('isLoggedIn');
-                if (!isLoggedIn) {
-                    window.location.href = "login.html";
+                const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+
+                if (currentUser && currentUser.id) {
+                    const selectedItem = JSON.stringify(item);
+                    localStorage.setItem('selectedItem', selectedItem);
+
+                    window.location.href = 'purchase.html'; 
                 } else {
-                    localStorage.setItem('selectedItem', JSON.stringify(item));
-                    window.location.href = 'purchase.html';
+                    alert('Please login to buy this item.');
+                    window.location.href = 'login.html'; 
                 }
             }
 
+            
             itemCard.appendChild(itemImg);
             itemCard.appendChild(itemName);
             itemCard.appendChild(itemPrice);
@@ -96,19 +101,19 @@ document.addEventListener("DOMContentLoaded", function() {
         displayItems(filteredItems); 
     }
 
-    const addItemForm = document.getElementById('add-item-form');
-    addItemForm.addEventListener('submit', handleAddItem);
+    // const addItemForm = document.getElementById('add-item-form');
+    // addItemForm.addEventListener('submit', handleAddItem);
 
 
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', logoutUser);
-
     function logoutUser() {
-        localStorage.setItem('isLoggedIn', false);
+        sessionStorage.removeItem('id');
+        sessionStorage.removeItem('username');
+
         alert("Logout successful!");
         window.location.href = "index.html";
     }
-
 
 });
 

@@ -34,6 +34,7 @@
 // localStorage.setItem('items', JSON.stringify(items));
 
 // Retrieve items from local storage and display them
+// Retrieve items from local storage and display them
 document.addEventListener("DOMContentLoaded", function() {
     let storedItems = [];
     const storedData = localStorage.getItem('items');
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         console.error('Error: Items not found in local storage.');
     }
+
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
         itemList.innerHTML = '';
@@ -63,18 +65,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const buyButton = document.createElement('button');
             buyButton.textContent = 'Buy item';
-            buyButton.addEventListener("click", handleBuyingItem);
             buyButton.classList.add('buy-button');
 
-            function handleBuyingItem(event) {
-                event.preventDefault();
-                const isLoggedIn = localStorage.getItem('isLoggedIn');
-                if (!isLoggedIn) {
-                    window.location.href = "login.html";
-                } else {
-                    localStorage.setItem('selectedItem', JSON.stringify(item));
-                    window.location.href = 'purchase.html';
-                }
+            buyButton.addEventListener("click",handleBuyingItem);
+            function handleBuyingItem(event){
+                event.preventDefault()
+                const isLoggedIn = sessionStorage.getItem('isLoggedIn')
+                if (!isLoggedIn)
+                    window.location.href="login.html"
+                else
+                    window.location.href = 'purchase.html'
+                localStorage.setItem('selectedItem', JSON.stringify(item))
             }
 
             itemCard.appendChild(itemImg);
@@ -85,35 +86,25 @@ document.addEventListener("DOMContentLoaded", function() {
             itemList.appendChild(itemCard);
         });
     }
+
     document.getElementById('search-form').addEventListener('submit', handleSearch);
 
     function handleSearch(event) {
         event.preventDefault();
-        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
         const filteredItems = storedItems.filter(item =>
-        item.name.toLowerCase().includes(searchTerm)
+            item.name.toLowerCase().includes(searchTerm)
         );
-        displayItems(filteredItems); 
+        displayItems(filteredItems);
     }
-
-    // const addItemForm = document.getElementById('add-item-form');
-    // addItemForm.addEventListener('submit', handleAddItem);
-
 
     const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', logoutUser);
+
     function logoutUser() {
-        sessionStorage.removeItem('id');
+        sessionStorage.removeItem('isLoggedIn');
         sessionStorage.removeItem('username');
-
-        alert("Logout successful!");
-        window.location.href = "index.html";
+        alert('Logout successful!');
+        window.location.href = 'index.html';
     }
-
 });
-
-
-
-   
-    
-   
