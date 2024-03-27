@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const currentUser = sessionStorage.getItem('username'); // Assuming you have stored the current user's username
-
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Assuming you have stored the current user's username
+    const currentUserusername= currentUser.username;
+    // console.log(currentUser);
+    // console.log(currentUserusername);
     const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
-    if (purchaseHistory && currentUser) {
-        const userPurchaseHistory = purchaseHistory.filter(purchase => purchase.buyer === currentUser);
+    if (purchaseHistory && currentUserusername) {
+        const userPurchaseHistory = purchaseHistory.filter(purchase => purchase.buyer === currentUserusername);
         const purchaseHistoryTable = document.getElementById('salesTable');
         const viewHistory = userPurchaseHistory.map(purchase => displayHistory(purchase)).join('');
         purchaseHistoryTable.innerHTML = viewHistory;
@@ -21,4 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <td>${purchase.quantity}</td>
         </tr>`
     }
+    
+
 })

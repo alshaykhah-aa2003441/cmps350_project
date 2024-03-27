@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
   const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
   const saleHistory = JSON.parse(localStorage.getItem('saleHistory')) || [];
   // Add these console logs for debugging
-console.log('currentUser:', currentUser);
-console.log('sessionStorage username:', sessionStorage.getItem('username'));
+// console.log('currentUser:', currentUser);
+// console.log('sessionStorage username:', sessionStorage.getItem('username'));
 
-// Check if the retrieved username matches the expected user
-if (currentUser.username !== sessionStorage.getItem('username')) {
-  console.log('Error: Current user data mismatch.');
-  // Handle the error condition appropriately
-}
+// // Check if the retrieved username matches the expected user
+// if (currentUser.username !== sessionStorage.getItem('username')) {
+//   console.log('Error: Current user data mismatch.');
+//   // Handle the error condition appropriately
+// }
 
   const itemDetailsHTML = `
       <h2>${selectedItem.name}</h2>
@@ -65,7 +65,7 @@ if (currentUser.username !== sessionStorage.getItem('username')) {
       itemName: selectedItem.name,
       itemquantity: selectedItem.quantity,
       buyer: sessionStorage.getItem('username'),
-      seller: selectedItem.seller_id,
+      seller: currentUser.seller_id,
       quantity: quantity,
       price: selectedItem.price*quantity,
 
@@ -78,13 +78,15 @@ if (currentUser.username !== sessionStorage.getItem('username')) {
     saleHistory.push(SellerData);
     localStorage.setItem('saleHistory', JSON.stringify(saleHistory));
 
-    const seller = users.filter(user => user.id === selectedItem.seller_id && user.type === 'seller')[0];
-    if (seller) {
-      const sellerBankAccount = seller.bank_account;
-      const updatedBankAccount = sellerBankAccount + totalPrice;
-      seller.bank_account = updatedBankAccount;
-      localStorage.setItem('users', JSON.stringify(users));
-    }
+    // this prevent the code from runing 
+
+    // const seller = users.filter(user => user.id === selectedItem.seller_id && user.type === 'seller')[0];
+    // if (seller) {
+    //   const sellerBankAccount = seller.bank_account;
+    //   const updatedBankAccount = sellerBankAccount + totalPrice;
+    //   seller.bank_account = updatedBankAccount;
+    //   localStorage.setItem('users', JSON.stringify(users));
+    // }
     currentUser.balance -= totalPrice;
     localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Update user balance in localStorage
 

@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const matchedUser = usersData.find(user => user.username === username && user.password === password);
     if (matchedUser) {
       sessionStorage.setItem('isLoggedIn', 'true'); 
-      // sessionStorage.setItem('username', username);
+      sessionStorage.setItem('username', username);
       sessionStorage.setItem('currentUser', JSON.stringify(matchedUser));
 
       const windowOpen = matchedUser.type === "customer" ? "index.html" : "seller.html";

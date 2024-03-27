@@ -66,8 +66,8 @@ body {
     padding: 0;
 }
 header img{
-    width: 10%;
-    height: 10%;
+    width: 20%;
+    height: 20%;
 }
 #main-pageNav{
     display: flex;
