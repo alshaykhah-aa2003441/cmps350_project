@@ -1,56 +1,71 @@
-// Sample items data
-const items = [
-    {
-        "name": "T-Shirt",
-        "price": 50,
-        "image": "icons/blank-1886008_640.webp",
-        "seller_id": 3,
-        "quantity": 100
-    },
-    {
-        "name": "Shoes",
-        "price": 60,
-        "image": "icons/adidas-dame-8.webp",
-        "seller_id": 3,
-        "quantity": 10
-    },
-    {
-        "name": "Pants",
-        "price": 70,
-        "image": "icons/sv13100_tauw_0.webp",
-        "seller_id": 3,
-        "quantity": 90
-    },
-    {
-        "name": "Sunglasses",
-        "price": 25,
-        "image": "icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp",
-        "seller_id": 3,
-        "quantity": 55
-    }
-];
+// // Sample items data
+// const items = [
+//     {
+//         "name": "T-Shirt",
+//         "price": 50,
+//         "image": "icons/blank-1886008_640.webp",
+//         "seller_id": 3,
+//         "quantity": 100
+//     },
+//     {
+//         "name": "Shoes",
+//         "price": 60,
+//         "image": "icons/adidas-dame-8.webp",
+//         "seller_id": 3,
+//         "quantity": 10
+//     },
+//     {
+//         "name": "Pants",
+//         "price": 70,
+//         "image": "icons/sv13100_tauw_0.webp",
+//         "seller_id": 3,
+//         "quantity": 90
+//     },
+//     {
+//         "name": "Sunglasses",
+//         "price": 25,
+//         "image": "icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp",
+//         "seller_id": 3,
+//         "quantity": 55
+//     }
+// ];
 
 // // Store items in local storage
+<<<<<<< HEAD
 localStorage.setItem('items', JSON.stringify(items));
 
 
+=======
+// localStorage.setItem('items', JSON.stringify(items));
+>>>>>>> ae72057b250578b30d09baba35e4f81eae27eefd
 
 
 //Retrieve items from local storage and display them
 document.addEventListener("DOMContentLoaded", function() {
     let storedItems = [];
-    const storedData = localStorage.getItem('items');
-    if (storedData) {
-        storedItems = JSON.parse(storedData);
-        displayItems(storedItems);
-    } else {
-        console.error('Error: Items not found in local storage.');
-    }
+    fetch('./jsons/items.json')
+        .then(response=>response.json())
+        .then(data=>{
+             storedItems=data;
+             localStorage.setItem('items', JSON.stringify(storedItems)); // Save items to local storage
+            displayItems(storedItems);
+        })
+        .catch(error=>{
+            console.error('Error fetching items:', error);
+        });
+
+        
+    // const storedData = localStorage.getItem('items');
+    // if (storedData) {
+    //     storedItems = JSON.parse(storedData);
+    //     displayItems(storedItems);
+    // } else {
+    //     console.error('Error: Items not found in local storage.');
+    // }
 
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
         itemList.innerHTML = '';
-
         itemsToDisplay.forEach(item => {
             const itemCard = document.createElement('div');
             itemCard.classList.add('item_card');
@@ -84,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
             itemCard.appendChild(itemName);
             itemCard.appendChild(itemPrice);
             itemCard.appendChild(buyButton);
-
             itemList.appendChild(itemCard);
         });
     }
@@ -110,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'index.html';
     }
 });
+<<<<<<< HEAD
 
 
 
@@ -117,3 +132,5 @@ document.addEventListener("DOMContentLoaded", function() {
    
     
    
+=======
+>>>>>>> ae72057b250578b30d09baba35e4f81eae27eefd
