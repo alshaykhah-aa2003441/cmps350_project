@@ -2,10 +2,18 @@ document.addEventListener("DOMContentLoaded", function() {
   const purchaseForm = document.querySelector('.purchaseform');
   const itemDetailsContainer = document.getElementById('item-details');
   const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
-  const currentUser = JSON.parse(localStorage.getItem('currentUser')); // Assuming user data is stored during login
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Assuming user data is stored during login
   const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
   const saleHistory = JSON.parse(localStorage.getItem('saleHistory')) || [];
+  // Add these console logs for debugging
+console.log('currentUser:', currentUser);
+console.log('sessionStorage username:', sessionStorage.getItem('username'));
 
+// Check if the retrieved username matches the expected user
+if (currentUser.username !== sessionStorage.getItem('username')) {
+  console.log('Error: Current user data mismatch.');
+  // Handle the error condition appropriately
+}
 
   const itemDetailsHTML = `
       <h2>${selectedItem.name}</h2>
@@ -22,11 +30,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const address = document.getElementById('address').value.trim();
     const zipCode = document.getElementById('zip').value.trim();
 
+    
+
     const totalPrice = selectedItem.price * quantity;
-    if (currentUser.balance < totalPrice) {
+    const currentUserBalance = parseInt(currentUser.balance, 10);
+    // console.log('currentUser:', currentUser); // Log the retrieved user data
+    // console.log('currentUserBalance:', parseInt(currentUser.balance, 10)); // Log the parsed balance
+
+  if (currentUserBalance < totalPrice) {
+      console.log('Insufficient balance:', currentUserBalance, totalPrice);
       alert('Insufficient balance to make this purchase.');
+      // window.location.href = 'index.html';
       return;
-    }
+  }
+
 
     const confirmationMessage = `Thank you for your purchase!
         Total Price: $${totalPrice}

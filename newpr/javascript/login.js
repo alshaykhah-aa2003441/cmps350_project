@@ -21,6 +21,17 @@
 //     "balance": 700
 //   },
 //   {
+//         "id": 10,
+//         "type": "customer",
+//         "name": "raghad",
+//         "surname": "saleh",
+//         "shipping_address": "123 Main St, City, Country",
+//         "username": "user3",
+//         "password": "password3",
+//         "balance": 100000
+//       },
+
+//   {
 //     "id": 3,
 //     "type": "seller",
 //     "company_name": "ABC Inc.",
@@ -54,10 +65,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const password = document.getElementById("password").value.trim();
     const usersData = JSON.parse(localStorage.getItem('users')) || [];
 
+    sessionStorage.clear();
+
     const matchedUser = usersData.find(user => user.username === username && user.password === password);
     if (matchedUser) {
       sessionStorage.setItem('isLoggedIn', 'true'); 
-      sessionStorage.setItem('username', username);
+      // sessionStorage.setItem('username', username);
+      sessionStorage.setItem('currentUser', JSON.stringify(matchedUser));
 
       const windowOpen = matchedUser.type === "customer" ? "index.html" : "seller.html";
       window.location.href = windowOpen;
