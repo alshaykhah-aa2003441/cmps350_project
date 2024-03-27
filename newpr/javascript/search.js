@@ -1,40 +1,47 @@
-// // Sample items data
-// const items = [
-//     {
-//         "name": "T-Shirt",
-//         "price": 50,
-//         "image": "icons/blank-1886008_640.webp",
-//         "seller_id": 3,
-//         "quantity": 100
-//     },
-//     {
-//         "name": "Shoes",
-//         "price": 60,
-//         "image": "icons/adidas-dame-8.webp",
-//         "seller_id": 3,
-//         "quantity": 10
-//     },
-//     {
-//         "name": "Pants",
-//         "price": 70,
-//         "image": "icons/sv13100_tauw_0.webp",
-//         "seller_id": 3,
-//         "quantity": 90
-//     },
-//     {
-//         "name": "Sunglasses",
-//         "price": 25,
-//         "image": "icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp",
-//         "seller_id": 3,
-//         "quantity": 55
-//     }
-// ];
+// Sample items data
+const items = [
+    {
+        "name": "T-Shirt",
+        "price": 50,
+        "image": "icons/blank-1886008_640.webp",
+        "seller_id": 3,
+        "quantity": 100
+    },
+    {
+        "name": "Shoes",
+        "price": 60,
+        "image": "icons/adidas-dame-8.webp",
+        "seller_id": 3,
+        "quantity": 10
+    },
+    {
+        "name": "Pants",
+        "price": 70,
+        "image": "icons/sv13100_tauw_0.webp",
+        "seller_id": 3,
+        "quantity": 90
+    },
+    {
+        "name": "Sunglasses",
+        "price": 25,
+        "image": "icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp",
+        "seller_id": 3,
+        "quantity": 55
+    }
+];
 
 // // Store items in local storage
-// localStorage.setItem('items', JSON.stringify(items));
+localStorage.setItem('items', JSON.stringify(items));
 
+<<<<<<< Updated upstream
 // Retrieve items from local storage and display them
 // Retrieve items from local storage and display them
+=======
+
+
+
+//Retrieve items from local storage and display them
+>>>>>>> Stashed changes
 document.addEventListener("DOMContentLoaded", function() {
     let storedItems = [];
     const storedData = localStorage.getItem('items');
@@ -108,3 +115,13 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'index.html';
     }
 });
+<<<<<<< Updated upstream
+=======
+
+
+
+
+   
+    
+   
+>>>>>>> Stashed changes
