@@ -78,7 +78,13 @@ if (currentUser.username !== sessionStorage.getItem('username')) {
     saleHistory.push(SellerData);
     localStorage.setItem('saleHistory', JSON.stringify(saleHistory));
 
-      // Update user balance after purchase
+    const seller = users.filter(user => user.id === selectedItem.seller_id && user.type === 'seller')[0];
+    if (seller) {
+      const sellerBankAccount = seller.bank_account;
+      const updatedBankAccount = sellerBankAccount + totalPrice;
+      seller.bank_account = updatedBankAccount;
+      localStorage.setItem('users', JSON.stringify(users));
+    }
     currentUser.balance -= totalPrice;
     localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Update user balance in localStorage
 
