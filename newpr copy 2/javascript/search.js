@@ -34,8 +34,6 @@ const items = [
 localStorage.setItem('items', JSON.stringify(items));
 
 
-
-
 //Retrieve items from local storage and display them
 document.addEventListener("DOMContentLoaded", function() {
     let storedItems = [];
@@ -49,6 +47,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
+        if (!itemList) {
+        console.error('Error: item_list element not found.');
+        return;
+    }
         itemList.innerHTML = '';
 
         itemsToDisplay.forEach(item => {
