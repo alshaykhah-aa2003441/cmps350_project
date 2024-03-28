@@ -1,37 +1,37 @@
-// Sample items data
-const items = [
-    {
-        "name": "T-Shirt",
-        "price": 50,
-        "image": "icons/blank-1886008_640.webp",
-        "seller_id": 3,
-        "quantity": 100
-    },
-    {
-        "name": "Shoes",
-        "price": 60,
-        "image": "icons/adidas-dame-8.webp",
-        "seller_id": 3,
-        "quantity": 10
-    },
-    {
-        "name": "Pants",
-        "price": 70,
-        "image": "icons/sv13100_tauw_0.webp",
-        "seller_id": 3,
-        "quantity": 90
-    },
-    {
-        "name": "Sunglasses",
-        "price": 25,
-        "image": "icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp",
-        "seller_id": 3,
-        "quantity": 55
-    }
-];
+// // Sample items data
+// const items = [
+//     {
+//         "name": "T-Shirt",
+//         "price": 50,
+//         "image": "icons/blank-1886008_640.webp",
+//         "seller_id": 3,
+//         "quantity": 100
+//     },
+//     {
+//         "name": "Shoes",
+//         "price": 60,
+//         "image": "icons/adidas-dame-8.webp",
+//         "seller_id": 3,
+//         "quantity": 10
+//     },
+//     {
+//         "name": "Pants",
+//         "price": 70,
+//         "image": "icons/sv13100_tauw_0.webp",
+//         "seller_id": 3,
+//         "quantity": 90
+//     },
+//     {
+//         "name": "Sunglasses",
+//         "price": 25,
+//         "image": "icons/Dusk-Blackframewithdarktint_polarizedlenses_969c55e5-54b3-44bc-ad49-3c0eac2e49f5_1100x.webp",
+//         "seller_id": 3,
+//         "quantity": 55
+//     }
+// ];
 
-// // Store items in local storage
-localStorage.setItem('items', JSON.stringify(items));
+// // // Store items in local storage
+// localStorage.setItem('items', JSON.stringify(items));
 
 
 //Retrieve items from local storage and display them
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
+            
         if (!itemList) {
         console.error('Error: item_list element not found.');
         return;
@@ -111,6 +112,40 @@ document.addEventListener("DOMContentLoaded", function() {
         alert('Logout successful!');
         window.location.href = 'index.html';
     }
+
+    // const currentUser = sessionStorage.getItem('username');
+    // console.log("Current User:", currentUser);
+
+    // const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Assuming you have stored the current user's username
+    
+
+    // const uploadForm = document.querySelector('.upload-form');
+
+    // uploadForm.addEventListener('submit', addItem);
+    // function addItem(event) {
+    //     event.preventDefault();
+    
+    //     const itemName = document.getElementById('item-name').value.trim();
+    //     const itemPrice = parseFloat(document.getElementById('price').value);
+    //     const itemQuantity = parseInt(document.getElementById('quantity').value);
+    //     const itemImageInput = document.getElementById('item-image');
+    //     const itemImageFile = itemImageInput.files[0]; // Get the selected file
+    
+    //     const itemImage = URL.createObjectURL(itemImageFile);
+    //     const newItem = {
+    //         name: itemName,
+    //         price: itemPrice,
+    //         quantity: itemQuantity,
+    //         seller: currentUser.id,
+    //         image: itemImage
+    //     };
+    
+    //     storedItems.push(newItem);
+    //     localStorage.setItem('items', JSON.stringify(storedItems));
+    //     displayItems(storedItems); 
+    //     event.target.reset();
+    //     window.location.href = 'index.html';
+    // }
 });
 
 

@@ -81,8 +81,6 @@
 
 //     }
 // });
-
-
 document.addEventListener("DOMContentLoaded", function () {
     let storedItems = JSON.parse(localStorage.getItem('items')) || [];
     const currentUser = sessionStorage.getItem('username');
@@ -115,49 +113,53 @@ document.addEventListener("DOMContentLoaded", function () {
         event.target.reset();
         window.location.href = 'index.html';
     }
-    
-    function displayItems(itemsToDisplay) {
-        const itemList = document.querySelector('.item_list');
-        console.log('itemList:', itemList); 
-    
-        itemList.innerHTML = '';
-    
-        itemsToDisplay.forEach(item => {
-            const itemCard = document.createElement('div');
-            itemCard.classList.add('item_card');
-    
-            const itemImg = document.createElement('img');
-            itemImg.src = item.image;
-            itemImg.alt = item.name;
-    
-            const itemName = document.createElement('h3');
-            itemName.textContent = item.name;
-    
-            const itemPrice = document.createElement('p');
-            itemPrice.textContent = `$${item.price}`;
-    
-            const buyButton = document.createElement('button');
-            buyButton.textContent = 'Buy item';
-            buyButton.classList.add('buy-button');
-    
-            buyButton.addEventListener("click",handleBuyingItem);
-            function handleBuyingItem(event){
-                event.preventDefault()
-                const isLoggedIn = sessionStorage.getItem('isLoggedIn')
-                if (!isLoggedIn)
-                    window.location.href="login.html"
-                else
-                    window.location.href = 'purchase.html'
-                localStorage.setItem('selectedItem', JSON.stringify(item))
-            }
-    
-            itemCard.appendChild(itemImg);
-            itemCard.appendChild(itemName);
-            itemCard.appendChild(itemPrice);
-            itemCard.appendChild(buyButton);
-    
-            itemList.appendChild(itemCard);
-        });
-    }
-    
-});
+     });
+// document.addEventListener('DOMContentLoaded', function() {
+//     const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+//     document.getElementById('item-image').addEventListener('change', function() {
+//         const imgFile = this.files[0];
+//         if (imgFile) {
+//             const reader = new FileReader();
+//             reader.onload = function(e) {
+//                 document.getElementById('image-preview').src = e.target.result;
+//             }
+//             reader.readAsDataURL(imgFile);
+//         }
+//     });
+
+//     const form = document.getElementById('upload-form');
+//     form.addEventListener('submit', function(event) {
+//         event.preventDefault();
+
+//         // Extract data from form fields
+//         const name = document.getElementById('item-name').value.trim();
+//         const price = parseFloat(document.getElementById('price').value);
+//         const quantity = parseInt(document.getElementById('quantity').value);
+//         const imageFiles = document.getElementById('item-image').files;
+
+//         // Validate form data
+
+//         // Create new item object
+//         const newItem = {
+//             "name": name,
+//             "price": price,
+//             "quantity": quantity,
+//             "seller" : currentUser.id,
+//             "image": "icons/" + imageFiles[0].name // Assuming images are stored in "images/" directory
+//         };
+
+        
+//         let items = JSON.parse(localStorage.getItem('items')) || [];
+        
+//         items.push(newItem);
+        
+//         localStorage.setItem('items', JSON.stringify(items));
+
+       
+//         form.reset();
+       
+//         alert('New item added successfully!');
+
+//         console.log('Updated items array:', items);
+//     });
+// });

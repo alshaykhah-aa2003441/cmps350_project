@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Upload Item</title>
   <link rel="stylesheet" href="style.css"> 
-  <script src="javascript/search.js"></script>
+  <script src="javascript/add-item.js"></script>
 </head>
 <body>
   <header>
@@ -30,10 +30,13 @@
         <label for="quantity">Available Quantity:</label>
         <input type="number" id="quantity" name="quantity" min="0" required>
 
-        <label for="image">Image:</label>
-        <input type="file" id="item-image" name="image" accept="image/*" required>
+        <label for="item-image">Image:</label>
+        <input type="file" id="item-image" name="item-image" accept="image/*" required>
         <button type="submit" id="upload-itemBTN" class="uploaditembutton" onclick="">Upload Item</button>
         <form class="upload-form" action="upload.php" method="post" enctype="multipart/form-data">
+
+          <img id="image-preview" src="icons/skirt.jpg" alt="Image Preview" style="max-width: 200px; display: none;"><br><br>
+
 
       </form>
 
