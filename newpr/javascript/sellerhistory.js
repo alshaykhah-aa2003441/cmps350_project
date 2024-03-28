@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const saleHistory = JSON.parse(localStorage.getItem('saleHistory'));
     const salesTable = document.getElementById('salesTable');
+    // console.log('saleHistory:', saleHistory);
     let salesHTML = ""; 
 
     saleHistory.forEach(sale => {

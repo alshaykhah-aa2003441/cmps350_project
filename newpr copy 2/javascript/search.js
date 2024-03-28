@@ -33,8 +33,10 @@ const items = [
 // // Store items in local storage
 localStorage.setItem('items', JSON.stringify(items));
 
-// Retrieve items from local storage and display them
-// Retrieve items from local storage and display them
+
+
+
+//Retrieve items from local storage and display them
 document.addEventListener("DOMContentLoaded", function() {
     let storedItems = [];
     const storedData = localStorage.getItem('items');
@@ -108,3 +110,10 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'index.html';
     }
 });
+
+
+
+
+   
+    
+   
