@@ -71,12 +71,9 @@ document.addEventListener("DOMContentLoaded", function() {
     if (matchedUser) {
       console.log("Matched User:", matchedUser); // Debugging statement
       sessionStorage.setItem('isLoggedIn', 'true'); 
-<<<<<<< HEAD
       sessionStorage.setItem('id', matchedUser.id);
       sessionStorage.setItem('username', matchedUser.username); // Store username in sessionStorage
-=======
       sessionStorage.setItem('username', username);
->>>>>>> 7890239a2ae42d3ac02f5323eeb192dbd60c6ed2
       sessionStorage.setItem('currentUser', JSON.stringify(matchedUser));
     
       const windowOpen = matchedUser.type === "customer" ? "index.html" : "seller.html";
