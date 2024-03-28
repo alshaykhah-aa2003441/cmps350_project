@@ -101,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const itemImageFile = itemImageInput.files[0]; // Get the selected file
     
         const itemImage = URL.createObjectURL(itemImageFile);
-    
         const newItem = {
             name: itemName,
             price: itemPrice,
@@ -112,15 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
     
         storedItems.push(newItem);
         localStorage.setItem('items', JSON.stringify(storedItems));
-        displayItems(storedItems); // Update the display
+        displayItems(storedItems); 
         event.target.reset();
-        // Redirect to main page
         window.location.href = 'index.html';
     }
     
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
-        console.log('itemList:', itemList); // Check if itemList is null
+        console.log('itemList:', itemList); 
     
         itemList.innerHTML = '';
     
