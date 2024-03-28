@@ -17,6 +17,7 @@
       </header>
       <main class="seller-container">
         <h1>Welcome, Seller!</h1>
+        
         <div>
           <a href="items-for-sale.html">
             <button class="dashboard-button">View Items</button>
@@ -40,6 +41,11 @@
         </ul>
         <p class="copyright">Copyright &copy; 2021–2024 ECO essentials, Inc. </p>
       </footer>
+
+      <script>
+        const currentUser = sessionStorage.getItem('username');
+        console.log("Current User:", currentUser);
+      </script>
 </body>
 
 </html>
