@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async function() {
       const items = await fetchItems();
       if (items.length > 0) {
         const itemsHTML = items.map(item => displayItem(item)).join(''); // Use join('') for efficiency
-        itemsTable.innerHTML = itemsHTML;
+        itemsTable.innerHTML = `<thead><tr><th>Item</th><th>Price</th><th>Quantity</th></tr></thead><tbody>${itemsHTML}</tbody>`;
       } else {
         itemsTable.innerHTML = "<tr><td colspan='3'>No items found.</td></tr>";
       }
@@ -15,21 +15,18 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
   
     async function fetchItems() {
-      const response = await fetch("jsons/items.json");
-      if (!response.ok) {
+      const response = JSON.parse(localStorage.items)
+      // const response = await fetch("jsons/items.json");
+      if (!response) {
         throw new Error(`Error fetching items: ${response.status}`);
       }
-      const data = await response.json();
-      return data || [];
+      // const data = await response.json();
+      // return data || [];
+      return response
     }
   
     function displayItem(item) {
       return `
-        <tr>
-          <th>Item</th>
-          <th>Price</th>
-          <th>Quantity</th>
-        </tr>
         <tr>
           <td>${item.name}</td>
           <td>$${item.price}</td>

@@ -8,15 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const userPurchaseHistory = purchaseHistory.filter(purchase => purchase.buyer === currentUserusername);
         const purchaseHistoryTable = document.getElementById('salesTable');
         const viewHistory = userPurchaseHistory.map(purchase => displayHistory(purchase)).join('');
-        purchaseHistoryTable.innerHTML = viewHistory;
+        purchaseHistoryTable.innerHTML = `<thead><tr><th>Item Name</th><th>Price</th><th>Quantity</th></tr></thead><tbody>${viewHistory}</tbody>`;
          
     } 
     function displayHistory(purchase) {
-        return `<tr>
-            <th>Item Name</th>
-            <th>Item Price</th>
-            <th>Quantity</th>
-        </tr>
+        return `
         <tr>
             <td>${purchase.itemName}</td>
             <td>${purchase.price} $</td>
