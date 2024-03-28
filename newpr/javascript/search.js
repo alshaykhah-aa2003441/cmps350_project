@@ -31,13 +31,7 @@
 // ];
 
 // // Store items in local storage
-<<<<<<< HEAD
-localStorage.setItem('items', JSON.stringify(items));
-
-
-=======
 // localStorage.setItem('items', JSON.stringify(items));
->>>>>>> ae72057b250578b30d09baba35e4f81eae27eefd
 
 
 //Retrieve items from local storage and display them
@@ -124,13 +118,3 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'index.html';
     }
 });
-<<<<<<< HEAD
-
-
-
-
-   
-    
-   
-=======
->>>>>>> ae72057b250578b30d09baba35e4f81eae27eefd
