@@ -68,29 +68,45 @@ document.addEventListener("DOMContentLoaded", function() {
             const itemPrice = document.createElement('p');
             itemPrice.textContent = `$${item.price}`;
 
+            const itemQuantity = document.createElement('p');
+            itemQuantity.textContent = `Quantity: ${item.quantity}`;
+
+            // Check if the quantity is 0 and display appropriate message
+            if (item.quantity === 0) {
+            const noMoreAvailable = document.createElement('p');
+            noMoreAvailable.textContent = `No more ${item.name}s available`;
+            itemCard.appendChild(noMoreAvailable);
+        } else {
             const buyButton = document.createElement('button');
             buyButton.textContent = 'Buy item';
             buyButton.classList.add('buy-button');
-
-            buyButton.addEventListener("click",handleBuyingItem);
-            function handleBuyingItem(event){
-                event.preventDefault()
-                const isLoggedIn = sessionStorage.getItem('isLoggedIn')
-                if (!isLoggedIn)
-                    window.location.href="login.html"
-                else
-                    window.location.href = 'purchase.html'
-                localStorage.setItem('selectedItem', JSON.stringify(item))
+            
+            if (item.quantity === 0) {
+                buyButton.disabled = true; // Disable the button if quantity is 0
+            } else {
+                buyButton.addEventListener("click",handleBuyingItem);
+                function handleBuyingItem(event){
+                    event.preventDefault()
+                    const isLoggedIn = sessionStorage.getItem('isLoggedIn')
+                    if (!isLoggedIn)
+                        window.location.href="login.html"
+                    else
+                        window.location.href = 'purchase.html'
+                    localStorage.setItem('selectedItem', JSON.stringify(item))
+                }
             }
 
-            itemCard.appendChild(itemImg);
-            itemCard.appendChild(itemName);
-            itemCard.appendChild(itemPrice);
             itemCard.appendChild(buyButton);
+        }
 
-            itemList.appendChild(itemCard);
-        });
-    }
+        itemCard.appendChild(itemImg);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+        itemCard.appendChild(itemQuantity);
+
+        itemList.appendChild(itemCard);
+    });
+}
 
     document.getElementById('search-form').addEventListener('submit', handleSearch);
 
@@ -112,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
         alert('Logout successful!');
         window.location.href = 'index.html';
     }
+});
 
     // const currentUser = sessionStorage.getItem('username');
     // console.log("Current User:", currentUser);
@@ -146,7 +163,6 @@ document.addEventListener("DOMContentLoaded", function() {
     //     event.target.reset();
     //     window.location.href = 'index.html';
     // }
-});
 
 
 

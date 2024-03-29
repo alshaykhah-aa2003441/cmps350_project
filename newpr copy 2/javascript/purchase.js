@@ -40,7 +40,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const item = items.findIndex(i => i.name === selectedItem.name)
     if (item !== -1){
-      items[item].quantity -= quantity;
+      if (quantity <= items[item].quantity) { // Check if requested quantity is available
+        items[item].quantity -= quantity;
+      } else {
+        console.error('Requested quantity exceeds available quantity');
+        alert(`Sorry, only ${items[item].quantity} ${selectedItem.name}(s) are available.`);
+        return;
+      }
     } else {
       console.error('Purchased item not found in the list of items');
       return;
@@ -52,15 +58,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // console.log('currentUser:', currentUser); // Log the retrieved user data
     // console.log('currentUserBalance:', parseInt(currentUser.balance, 10)); // Log the parsed balance
-
   if (currentUserBalance < totalPrice) {
       console.log('Insufficient balance:', currentUserBalance, totalPrice);
       alert('Insufficient balance to make this purchase.');
       // window.location.href = 'index.html';
       return;
   }
-
-
     const confirmationMessage = `Thank you for your purchase!
         Total Price: $${totalPrice}
         Quantity: ${quantity}

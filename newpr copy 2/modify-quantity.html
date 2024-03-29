@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Quantity</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="javascript/modify-item.js"></script>
+</head>
+<body>
+    <header>
+        <div id="ourBrand"  class="brand-container">
+            <img src="icons/logo.png" alt="logo" id="logo">
+            <h1>ARO Commerce</h1>
+        </div>
+        <div class="home-btn">
+            <a href="index.html">
+                <img src="icons/home.svg" alt="Home">
+            </a>
+        </div> 
+    </header>
+
+    <main class="modify-item">
+        <h2>Modify Quantity</h2>
+        <div id="item-details">
+
+        </div>
+        <form id="modify-form">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="0">
+            <button type="submit">Update Quantity</button>
+        </form>
+    </main>
+   
+</body>
+</html>
