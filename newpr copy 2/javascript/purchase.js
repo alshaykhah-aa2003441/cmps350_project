@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Assuming user data is stored during login
   const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
   const saleHistory = JSON.parse(localStorage.getItem('saleHistory')) || [];
+  const users = JSON.parse(localStorage.getItem('users'))
+  const items = JSON.parse(localStorage.getItem('items'))
+
   // Add these console logs for debugging
 // console.log('currentUser:', currentUser);
 // console.log('sessionStorage username:', sessionStorage.getItem('username'));
@@ -24,16 +27,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
   purchaseForm.addEventListener('submit', function(event) {
     event.preventDefault();
-
     const quantity = parseInt(document.getElementById('quantity').value);
-    const phoneNumber = document.getElementById('phone').value.trim();
+    const phoneNumber = parseInt(document.getElementById('phone').value);
     const address = document.getElementById('address').value.trim();
-    const zipCode = document.getElementById('zip').value.trim();
+    const zipCode = parseInt(document.getElementById('zip').value);
 
-    
+    const user = users.findIndex(u => u.username === currentUser.username)
+    if (user === -1){
+      console.error('Current user not found in the list of users');
+      return;
+    }
+
+    const item = items.findIndex(i => i.name === selectedItem.name)
+    if (item !== -1){
+      items[item].quantity -= quantity;
+    } else {
+      console.error('Purchased item not found in the list of items');
+      return;
+    }
 
     const totalPrice = selectedItem.price * quantity;
+    users[user].balance -= totalPrice
     const currentUserBalance = parseInt(currentUser.balance, 10);
+
     // console.log('currentUser:', currentUser); // Log the retrieved user data
     // console.log('currentUserBalance:', parseInt(currentUser.balance, 10)); // Log the parsed balance
 
@@ -52,25 +68,24 @@ document.addEventListener("DOMContentLoaded", function() {
         Phone Number: ${phoneNumber}`;
 
     const purchaseData = {
-          itemName: selectedItem.name,
-          price: selectedItem.price,
+          itemName: items[item].name,
+          price: items[item].price,
           phone: phone,
           quantity: quantity,
           address: address,
           zip: zip,
           buyer: sessionStorage.getItem('username'),
-          seller: selectedItem.seller_id,
+          seller: items[item].seller_id,
     };
-    const SellerData = {
-      itemName: selectedItem.name,
-      itemquantity: selectedItem.quantity,
-      buyer: sessionStorage.getItem('username'),
-      seller: currentUser.seller_id,
-      quantity: quantity,
-      price: selectedItem.price*quantity,
 
-     
-};
+    const SellerData = {
+      itemName: items[item].name,
+      itemquantity: items[item].quantity,
+      buyer: sessionStorage.getItem('username'),
+      seller: users[user].seller_id,
+      quantity: quantity,
+      price: items[item].price*quantity,   
+    };
 
     purchaseHistory.push(purchaseData);
     localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
@@ -88,11 +103,12 @@ document.addEventListener("DOMContentLoaded", function() {
     //   localStorage.setItem('users', JSON.stringify(users));
     // }
     currentUser.balance -= totalPrice;
-    localStorage.setItem('currentUser', JSON.stringify(currentUser)); // Update user balance in localStorage
+    sessionStorage.setItem('currentUser', JSON.stringify(currentUser)); // Update user balance in localStorage
+
+    localStorage.setItem('users', JSON.stringify(users))
+    localStorage.setItem('items', JSON.stringify(items))
 
     alert(confirmationMessage);
-
-    
     window.location.href = 'index.html';
   });
 });

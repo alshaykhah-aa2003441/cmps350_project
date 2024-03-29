@@ -5,7 +5,13 @@ document.addEventListener("DOMContentLoaded", async function() {
       const items = await fetchItems();
       if (items.length > 0) {
         const itemsHTML = items.map(item => displayItem(item)).join(''); // Use join('') for efficiency
-        itemsTable.innerHTML = `<thead><tr><th>Item</th><th>Price</th><th>Quantity</th></tr></thead><tbody>${itemsHTML}</tbody>`;
+        itemsTable.innerHTML = `
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+        ${itemsHTML}`;
       } else {
         itemsTable.innerHTML = "<tr><td colspan='3'>No items found.</td></tr>";
       }
