@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const quantity = parseInt(document.getElementById('quantity').value);
         const imageFiles = document.getElementById('item-image').files;
 
-        // Validate form data
 
         // Create new item object
         const newItem = {
@@ -145,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "price": price,
             "quantity": quantity,
             "seller" : currentUser.id,
-            "image": "icons/" + imageFiles[0].name // Assuming images are stored in "images/" directory
+            "image": "icons/" + imageFiles[0].name 
         };
 
         
