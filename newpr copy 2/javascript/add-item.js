@@ -150,17 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
         let items = JSON.parse(localStorage.getItem('items')) || [];
-        
         items.push(newItem);
-        
         localStorage.setItem('items', JSON.stringify(items));
-
-       
         form.reset();
-       
         alert('New item added successfully!');
-
         console.log('Updated items array:', items);
-        window.location.href = 'index.html';
+        window.location.href = 'seller.html';
     });
 });

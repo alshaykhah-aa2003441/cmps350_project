@@ -16,7 +16,9 @@
     </div>
       </header>
       <main class="seller-container">
-        <h1>Welcome, Seller!</h1>
+        <!-- <h1>Welcome, Seller!</h1> -->
+        <h1 id="welcomeMessage">Welcome, Seller!</h1> <!-- Added id attribute for easy identification -->
+
         
         <div>
           <a href="items-for-sale.html">
@@ -28,6 +30,13 @@
           <a href="add_item.html">
             <button class="dashboard-button">Upload New Item</button>
           </a>
+
+
+          <div class="sellerOptions">
+            <p>check your item in our web! </p>
+            <button id="mainPageButton">Go to Main Page</button>
+          </div>
+
         </div>
       </main>
     <footer>
@@ -45,6 +54,15 @@
       <script>
         const currentUser = sessionStorage.getItem('username');
         console.log("Current User:", currentUser);
+            const welcomeMessage = document.getElementById('welcomeMessage');
+          if (currentUser) {
+          welcomeMessage.textContent = `Welcome, ${currentUser}!`;
+        }
+
+
+      document.getElementById('mainPageButton').addEventListener('click', function() {
+      window.location.href = 'index.html'; 
+        });
       </script>
 </body>
 
