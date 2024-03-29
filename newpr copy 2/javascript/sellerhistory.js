@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td>${sale.itemName}</td>
                 <td>${sale.buyer}</td>
                 <td>${sale.quantity}</td>
-                <td>${sale.price}</td>
+                <td>$${sale.price}</td>
                 <td>${remainingQuantity}</td> <!-- Display remaining quantity -->
                 ${actionButtonHTML} <!-- Display action button -->
             </tr>`;

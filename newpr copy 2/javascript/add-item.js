@@ -149,10 +149,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
         let items = JSON.parse(localStorage.getItem('items')) || [];
-        items.push(newItem);
+        const itemIndex = items.findIndex(item => item.name === name)
+        if (itemIndex !== -1){ //if item already exists, update its quantity 
+            items[itemIndex].quantity += quantity
+            alert('Quantity updated successfully'); 
+        } else{
+            items.push(newItem);
+            alert('New item added successfully!');
+        }
         localStorage.setItem('items', JSON.stringify(items));
         form.reset();
-        alert('New item added successfully!');
         console.log('Updated items array:', items);
         window.location.href = 'seller.html';
     });
