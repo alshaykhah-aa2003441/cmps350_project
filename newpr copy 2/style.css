@@ -75,6 +75,7 @@ header {
   box-sizing: border-box;
   background-color: #b6e7f3;
   margin-right: 20px;
+  margin-left: 10px;
 }
 body {
     color:var(--color-text2);;
@@ -93,8 +94,8 @@ body {
 
 .brand-container img {
     mix-blend-mode: multiply;
-    width: 10%;
-    height: 10%;
+    width: 15%;
+    height: 15%;
 }
 #main-pageNav{
     display: flex;
@@ -264,7 +265,7 @@ main {
 
 .item_card p {
   font-size: 16px;
-  color: #333;
+  color: #969090;
 }
 footer {
     background-color:var(--color-link-active);
@@ -423,6 +424,10 @@ footer {
     transform: translateY(-3px);
 }
 
+#item-details img {
+    width: 70%;
+}
+
 .Uploadcontainer {
     max-width: 600px;
     margin: 100px auto;
@@ -477,6 +482,11 @@ footer {
 #itemforsaleh2{
     text-align: center;
 }
+
+.sale-history h2 {
+    text-align: center;
+}
+
 #salesTable,
 #itemsTable {
     width: 100%;
@@ -523,7 +533,7 @@ footer {
     
   }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 666px) { 
     /* iphone xr */  
     header {
         padding: 5px; /* Reduce padding */
