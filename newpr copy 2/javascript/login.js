@@ -21,15 +21,15 @@ const users = [
     "balance": 700
   },
   {
-        "id": 10,
-        "type": "customer",
-        "name": "raghad",
-        "surname": "saleh",
-        "shipping_address": "123 Main St, City, Country",
-        "username": "user3",
-        "password": "password3",
-        "balance": 100000
-      },
+    "id": 10,
+    "type": "customer",
+    "name": "raghad",
+    "surname": "saleh",
+    "shipping_address": "123 Main St, City, Country",
+    "username": "user3",
+    "password": "password3",
+    "balance": 100000
+  },
 
   {
     "id": 3,
@@ -69,14 +69,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const matchedUser = usersData.find(user => user.username === username && user.password === password);
     if (matchedUser) {
-      console.log("Matched User:", matchedUser); // Debugging statement
+      console.log("Matched User:", matchedUser); 
       sessionStorage.setItem('isLoggedIn', 'true'); 
       sessionStorage.setItem('id', matchedUser.id);
-      sessionStorage.setItem('username', matchedUser.username); // Store username in sessionStorage
+      sessionStorage.setItem('username', matchedUser.username); 
       sessionStorage.setItem('username', username);
       sessionStorage.setItem('currentUser', JSON.stringify(matchedUser));
     
-      const windowOpen = matchedUser.type === "customer" ? "index.html" : "seller.html";
+      
+      let windowOpen = '';
+      if (matchedUser.type === "customer") {
+        windowOpen = "index.html";
+      } else if (matchedUser.username.startsWith("seller")) {
+        windowOpen = "seller.html";
+      } else if (matchedUser.username.startsWith("admin")) {
+        windowOpen = "admin.html";
+      } else {
+        // Default redirection for other user types
+        windowOpen = "index.html";
+      }
+      
       window.location.href = windowOpen;
       console.log("Welcome, " + matchedUser.username + "!"); 
       alert("Welcome, " + matchedUser.username + "!");

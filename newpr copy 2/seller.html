@@ -21,7 +21,7 @@
     </header>
       <main class="seller-container">
         <!-- <h1>Welcome, Seller!</h1> -->
-        <h1 id="welcomeMessage">Welcome, Seller!</h1> <!-- Added id attribute for easy identification -->
+        <h1 id="welcomeMessage">Welcome, Seller!</h1> 
 
         
  
@@ -58,13 +58,8 @@
         console.log("Current User:", currentUser);
             const welcomeMessage = document.getElementById('welcomeMessage');
           if (currentUser) {
-          welcomeMessage.textContent = `Welcome, ${currentUser}!`;
+          welcomeMessage.textContent = `Welcome, seller: ${currentUser}!`;
         }
-
-
-      document.getElementById('mainPageButton').addEventListener('click', function() {
-      window.location.href = 'index.html'; 
-        });
       </script>
 </body>
 

@@ -46,6 +46,18 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error('Error: Items not found in local storage.');
     }
 
+    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+    if (isLoggedIn) {
+        const loginButton = document.querySelector('.login a');
+        if (loginButton) {
+            loginButton.style.display = 'none'; 
+        }
+    }
+
+
+
+
+
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
             
@@ -140,6 +152,16 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = 'index.html';
     }
 });
+
+
+
+
+
+
+
+
+
+
 
     // const currentUser = sessionStorage.getItem('username');
     // console.log("Current User:", currentUser);
