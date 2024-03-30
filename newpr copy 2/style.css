@@ -3,11 +3,13 @@
         --color-text: black; 
         --color-background: white; 
         --color-link: #2b6777; 
-        --color-link-hover: #b6e7f3; 
+        /* --color-link-hover: #b6e7f3;  */
         --color-link-active:white ; 
         --color-text2: #000000; 
         --buttons-hover-color:#1d4652;
-        --background-main-color:#f2f2f2;
+        --background-main-color:#e8e7e7;
+        --background-card-color:#f1f1f1;
+        --color-contrastive:#EADFB4;
     }
   }
 @media screen and (prefers-color-scheme: dark) {
@@ -18,44 +20,54 @@
         --color-link: #F89b59; 
         --color-link-hover: #b6e7f3; 
         --color-link-active:#d1cece ; 
-        
     }
 }
+
+body {
+    color:var(--color-text2);;
+    background-color: var(--color-background);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 header {
-    background-color: var(--color-link-active);
-    color: var(--color-text);
-    padding: 10px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
-}
-.search-button {
-    width: 50px; /* Adjust the width as needed */
-    height: 50px; /* Adjust the height as needed */
-    background-color: var(--color-link);
-    color: white;
+    background-color: var(--color-link-active);
+    color: var(--color-text);
     padding: 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    
 }
-
-.search-button:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: var(--buttons-hover-color);
-}
-
-.search-bar{
-    margin-right: 150px;
-}
-#search-form {
+.brand-container {
     display: flex;
-    align-items: baseline; 
-    width: 100%;
-    max-width: 400px
+    align-items: center; 
+    padding: 20px;
+    gap: 10px;
+    /* font-family: Comic Sans MS, Comic Sans, cursive	; */
+    font-family: 'PT Sans', sans-serif;
+    flex: 1; 
+
 }
+#home-logo{
+    mix-blend-mode: multiply;
+    width: 15%;
+    height: 15%;
+}
+#logo{
+    mix-blend-mode: multiply;
+    width: 10%;
+    height: 10%;
+}
+
+#qatarFlg img{
+    border: 1px solid #969090;
+    width: 12%;
+    height: 15%; 
+    margin-left: 40px;
+    margin-top:6px;
+}
+
 .home-btn {
     position: relative;
     left: -50px; 
@@ -64,39 +76,56 @@ header {
     width: 40px; 
     height: 40px; 
     padding: 5px; 
-    
 }
-#search-input {
-  width: 450px; 
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background-color: #b6e7f3;
-  margin-right: 20px;
-  margin-left: 10px;
-}
-body {
-    color:var(--color-text2);;
-    background-color: var(--color-background);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.brand-container {
+#search-form {
     display: flex;
     align-items: center; 
-    padding: 20px;
-    gap: 20px;
+    width: 100%;
+    max-width: 450px
 }
 
-.brand-container img {
-    mix-blend-mode: multiply;
-    width: 15%;
-    height: 15%;
+.search-button {
+    height: 40px; 
+    background-color: var(--color-contrastive); 
+    padding: 10px;
+    /* margin: 10px 0; */
+    /* margin-bottom: 10px; */
+    margin-right: 30px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
+.search-button img {
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; 
+}
+
+.search-button:hover{
+    /* transform: translateY(-3px); */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    /* background-color: var(--buttons-hover-color); */
+}
+
+.search-bar{
+    margin-right: 50px;
+    display: flex; /* Add display flex to align items */
+    align-items: center;
+}
+
+
+#search-input {
+    flex: 1;
+    width: 600px; 
+  padding: 10px;
+  /* margin-bottom: 10px; */
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* background-color: #b6e7f3; */
+  margin-right: 20px;
+
+}
+
 #main-pageNav{
     display: flex;
     justify-content: space-between; 
@@ -116,57 +145,7 @@ body {
 #main-pageNav ul li.login {
     margin-right: 20px; 
 }
-/* 
-.login {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 20px;
-    background-color: var(--color-link);
-    color: var(--color-link-hover);
-    text-decoration: none; 
-    margin-right: -2rem; 
-    height: fit-content; 
-    width: 50px;
-    height: 30px;
-    line-height: 2.7;
-    font-size: medium;
-    font-weight: bold;
-    text-decoration: underline; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-#logoutButton {
-    position: relative;
-    z-index: 1;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-    color: white; 
-    font-size: medium;
-    font-weight: bold;
-    text-decoration: underline; 
-}
-.logout-btn {
-    text-indent: 30px;
-    text-align: right;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 20px;
-    background-color: var(--color-link);
-    color: var(--color-link-hover); 
-    text-decoration: none;
-    margin-left: -3rem;
-    height: fit-content;
-    width: 50px;
-    height: 30px;
-    line-height: 2.7;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-} */
+
 
 .login, .logout-btn {
     text-align: center;
@@ -186,8 +165,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
-
-
 #logoutButton {
     border: none;
     outline: none;
@@ -197,8 +174,6 @@ body {
     font-size: medium;
     font-weight: bold;
 }
-
-
 .login:hover,
 .logout-btn:hover {
     transform: translateY(-3px);
@@ -228,10 +203,10 @@ main {
 }
 
 .item_card {
-  border: 1px solid #ccc;
+  border: 1px solid #c9c9c9;
   padding: 10px;
   text-align: center;
-  box-shadow: 0 15px 25px rgba(182, 231, 243, 0.3);
+  box-shadow: 0 15px 25px rgba(102, 105, 105, 0.3);
   border-radius: 5px;
   margin-bottom: 20px;
   display: flex;
@@ -239,6 +214,8 @@ main {
   align-items: center;
   width: fit-content;
   transition: transform 0.3s ease-in-out;
+  background-color: var(--background-card-color);
+
 }
 
 .item_card:hover {
@@ -319,7 +296,7 @@ footer {
     max-width: 400px;
     margin: 100px auto;
     padding: 20px;
-    background-color:var(--color-link-hover);
+    background-color:var(--background-card-color);
     border-radius: 8px;
     text-align: center;
    
@@ -595,3 +572,4 @@ footer {
 .modify-item{
     text-align: center;
 }
+

@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
             itemPrice.textContent = `$${item.price}`;
 
             const itemQuantity = document.createElement('p');
-            itemQuantity.textContent = `Quantity: ${item.quantity}`;
+            itemQuantity.textContent = `Available quantity: ${item.quantity}`;
 
             // Check if the quantity is 0 and display appropriate message
             if (item.quantity === 0) {
