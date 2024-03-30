@@ -8,14 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
   const users = JSON.parse(localStorage.getItem('users'))
   const items = JSON.parse(localStorage.getItem('items'))
 
-  // Add these console logs for debugging
 // console.log('currentUser:', currentUser);
 // console.log('sessionStorage username:', sessionStorage.getItem('username'));
 
 // // Check if the retrieved username matches the expected user
 // if (currentUser.username !== sessionStorage.getItem('username')) {
 //   console.log('Error: Current user data mismatch.');
-//   // Handle the error condition appropriately
 // }
 
   const itemDetailsHTML = `

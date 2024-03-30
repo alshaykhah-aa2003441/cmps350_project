@@ -2,15 +2,12 @@
 //     let storedItems = JSON.parse(localStorage.getItem('items')) || [];
 //     const currentUser = sessionStorage.getItem('id');
 
-//     // Update Local Storage Function
 //     function addItemToLocalStorage(newItem) {
 //         storedItems.push(newItem);
 //         localStorage.setItem('items', JSON.stringify(storedItems));
-//         // Optional: Log the updated storedItems for debugging
 //         console.log('Items added:', storedItems);
 //     }
 
-//     // Update Displayed Items Function
 //     function displayItems(itemsToDisplay) {
 //         const itemList = document.querySelector('.item_list');
 //         itemList.innerHTML = '';
@@ -41,7 +38,6 @@
 //         });
 //     }
 
-//     // Display items from local storage on page load
 //     displayItems(storedItems);
 
 //     const addItemForm = document.querySelector('.upload-form');
@@ -52,15 +48,14 @@
 //     function handleAddItem(event) {
 //         event.preventDefault();
 
-//         // Get form input values
 //         const itemName = document.getElementById('item-name').value.trim();
 //         const itemPrice = parseFloat(document.getElementById('price').value);
 //         const itemQuantity = parseInt(document.getElementById('quantity').value);
 //         const itemImageInput = document.getElementById('item-image');
-//         const itemImageFile = itemImageInput.files[0]; // Get the selected file
+//         const itemImageFile = itemImageInput.files[0]; 
 
 //         // Placeholder image URL (replace with your image handling logic)
-//         const itemImage = URL.createObjectURL(itemImageFile); // Create a URL for the uploaded file
+//         const itemImage = URL.createObjectURL(itemImageFile); 
 
 //         const newItem = {
 //             name: itemName,
@@ -70,7 +65,6 @@
 //             image: itemImage
 //         };
 
-//         // Add item to local storage and update displayed items
 //         addItemToLocalStorage(newItem);
 //         displayItems(storedItems);
 
