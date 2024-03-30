@@ -1,4 +1,4 @@
-// // Sample items data
+// // // Sample items data
 // const items = [
 //     {
 //         "name": "T-Shirt",
@@ -33,7 +33,6 @@
 
 // // // Store items in local storage
 // localStorage.setItem('items', JSON.stringify(items));
-
 
 //Retrieve items from local storage and display them
 document.addEventListener("DOMContentLoaded", function() {
