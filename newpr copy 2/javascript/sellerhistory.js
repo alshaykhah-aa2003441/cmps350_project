@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let salesHTML = ""; 
 
     saleHistory.forEach(sale => {
-        const item = items.find(item => item.name === sale.itemName); // Find the corresponding item
-        const remainingQuantity = item ? item.quantity : "NA"; // Get the remaining quantity or "N/A" if item not found
+        const item = items.find(item => item.name === sale.itemName); 
+        const remainingQuantity = item ? item.quantity : "NA"; 
 
-        salesHTML += displaySales(sale, remainingQuantity, item); // Pass the item object to the display function
+        salesHTML += displaySales(sale, remainingQuantity, item); 
     });
     salesTable.innerHTML = `
         <tr>
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
             <th>Quantity</th>
             <th>Price</th>
             <th>Availability</th>
-            <th>Action</th> <!-- New column for action buttons -->
         </tr>
         ${salesHTML}`; 
 

@@ -464,6 +464,7 @@ footer {
     text-align: center;
 }
 
+
 .sale-history h2 {
     text-align: center;
 }
@@ -579,4 +580,11 @@ footer {
 
 .maroon{
     color: maroon;
+}
+.admin-container {
+    text-align: center;
+}
+
+#sellerTables {
+    text-align: center;
 }

@@ -34,7 +34,7 @@ const users = [
   {
     "id": 3,
     "type": "seller",
-    "company_name": "ABC Inc.",
+    "company_name": "aroQuest Inc.",
     "username": "seller1",
     "password": "sellerpass1",
     "bank_account": 12345
@@ -44,8 +44,15 @@ const users = [
     "type": "admin",
     "username": "admin1",
     "password": "adminpass1"
-  }
-];
+  },
+  {
+  "id": 5,
+  "type": "seller",
+  "company_name": "aroQuest Inc.",
+  "username": "seller2",
+  "password": "sellerpass2",
+  "bank_account": 67890
+}];
 
 localStorage.setItem('users', JSON.stringify(users));
 

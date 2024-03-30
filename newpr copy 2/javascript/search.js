@@ -55,9 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-
-
-
     function displayItems(itemsToDisplay) {
         const itemList = document.querySelector('.item_list');
             
