@@ -90,11 +90,9 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     const users = JSON.parse(localStorage.getItem('users')); 
-
-    const sellerTables = document.getElementById('users');
+    const sellerTables = document.getElementById('sellerTables');
 
     const sellers = users.filter(user => user.type === 'seller');
-
     sellers.forEach(seller => {
         const sellerTable = document.createElement('table');
         sellerTable.classList.add('seller-table');

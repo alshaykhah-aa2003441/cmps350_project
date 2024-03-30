@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const saleHistory = JSON.parse(localStorage.getItem('saleHistory'));
-    const items = JSON.parse(localStorage.getItem('items')); // Retrieve items data
+    const items = JSON.parse(localStorage.getItem('items')); 
     const salesTable = document.getElementById('salesTable');
     let salesHTML = ""; 
 
@@ -22,13 +22,12 @@ document.addEventListener("DOMContentLoaded", function() {
         ${salesHTML}`; 
 
     function displaySales(sale, remainingQuantity, item) {
-        let actionButtonHTML = ''; // Initialize action button HTML
+        let actionButtonHTML = ''; 
         
-        // Check if the quantity is 0 and display appropriate action button
         if (item && item.quantity === 0) {
             actionButtonHTML = `<td><a href="modify-quantity.html?itemName=${encodeURIComponent(item.name)}">Add More</a></td>`;
         } else {
-            actionButtonHTML = '<td></td>'; // Empty cell if quantity is not 0
+            actionButtonHTML = '<td></td>'; 
         }
 
         return `
@@ -37,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td>${sale.buyer}</td>
                 <td>${sale.quantity}</td>
                 <td>$${sale.price}</td>
-                <td>${remainingQuantity}</td> <!-- Display remaining quantity -->
-                ${actionButtonHTML} <!-- Display action button -->
+                <td>${remainingQuantity}</td> 
+                ${actionButtonHTML} 
             </tr>`;
     }
 });
