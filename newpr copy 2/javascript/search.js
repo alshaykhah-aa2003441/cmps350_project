@@ -28,6 +28,7 @@
 //         "seller_id": 3,
 //         "quantity": 55
 //     }
+
 // ];
 
 // // // Store items in local storage
@@ -57,21 +58,18 @@ document.addEventListener("DOMContentLoaded", function() {
         itemsToDisplay.forEach(item => {
             const itemCard = document.createElement('div');
             itemCard.classList.add('item_card');
-
             const itemImg = document.createElement('img');
             itemImg.src = item.image;
             itemImg.alt = item.name;
-
             const itemName = document.createElement('h3');
             itemName.textContent = item.name;
-
             const itemPrice = document.createElement('p');
             itemPrice.textContent = `$${item.price}`;
-
             const itemQuantity = document.createElement('p');
             itemQuantity.textContent = `Available quantity: ${item.quantity}`;
 
-            // Check if the quantity is 0 and display appropriate message
+
+
             if (item.quantity === 0) {
             const noMoreAvailable = document.createElement('p');
             noMoreAvailable.textContent = `No more ${item.name}s available`;
@@ -82,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
             buyButton.classList.add('buy-button');
             
             if (item.quantity === 0) {
-                buyButton.disabled = true; // Disable the button if quantity is 0
+                buyButton.disabled = true; 
+                
             } else {
                 buyButton.addEventListener("click",handleBuyingItem);
                 function handleBuyingItem(event){
@@ -116,7 +115,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const filteredItems = storedItems.filter(item =>
             item.name.toLowerCase().includes(searchTerm)
         );
-        displayItems(filteredItems);
+        if (filteredItems.length === 0) {
+            displayNoResultsMessage();
+        } else {
+            displayItems(filteredItems);
+        }
+    }
+
+    function displayNoResultsMessage() {
+        const itemList = document.querySelector('.item_list');
+        itemList.innerHTML = ''; 
+        const noResultsMessage = document.createElement('p');
+        noResultsMessage.textContent = 'No items found.';
+        itemList.appendChild(noResultsMessage);
     }
 
     const logoutButton = document.getElementById('logoutButton');
