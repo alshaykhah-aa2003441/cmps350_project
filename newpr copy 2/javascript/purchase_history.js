@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Assuming you have stored the current user's username
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); 
     const currentUserusername= currentUser.username;
     // console.log(currentUser);
     // console.log(currentUserusername);

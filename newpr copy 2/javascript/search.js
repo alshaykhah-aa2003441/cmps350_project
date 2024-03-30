@@ -142,16 +142,18 @@ document.addEventListener("DOMContentLoaded", function() {
     logoutButton.addEventListener('click', logoutUser);
 
     function logoutUser() {
+        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            alert('You must be logged in to logout!');
+            return; 
+        }
+    
         sessionStorage.removeItem('isLoggedIn');
         sessionStorage.removeItem('username');
         alert('Logout successful!');
         window.location.href = 'index.html';
     }
 });
-
-
-
-
 
 
 

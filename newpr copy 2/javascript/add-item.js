@@ -130,15 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.upload-form');
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-
-        // Extract data from form fields
         const name = document.getElementById('item-name').value.trim();
         const price = parseFloat(document.getElementById('price').value);
         const quantity = parseInt(document.getElementById('quantity').value);
         const imageFiles = document.getElementById('item-image').files;
 
-
-        // Create new item object
         const newItem = {
             "name": name,
             "price": price,
@@ -150,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let items = JSON.parse(localStorage.getItem('items')) || [];
         const itemIndex = items.findIndex(item => item.name === name)
-        if (itemIndex !== -1){ //if item already exists, update its quantity 
+        if (itemIndex !== -1){ 
             items[itemIndex].quantity += quantity
             alert('Quantity updated successfully'); 
         } else{

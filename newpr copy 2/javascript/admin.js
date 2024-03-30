@@ -4,10 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const items = JSON.parse(localStorage.getItem('items')); 
     const sellerTables = document.getElementById('sellerTables');
 
-    console.log(users); // Check if users data is retrieved
-    console.log(saleHistory); // Check if saleHistory data is retrieved
-    console.log(items); // Check if items data is retrieved
-    
+    console.log(users); 
+    console.log(saleHistory); 
+    console.log(items);
     sellerTables.innerHTML = '';
 
     const sellers = users.filter(user => user.type === 'seller');
@@ -27,21 +26,23 @@ document.addEventListener("DOMContentLoaded", function() {
                 <td>Username:</td>
                 <td>${seller.username}</td>
             </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="deleteSellerAndItems('${seller.id}')">End Contract and Delete Items</button>
+                </td>
+            </tr>
         `;
         sellerTable.innerHTML += sellerHeaderRow;
 
         console.log("Sale History:", saleHistory);
         console.log("Items:", items);
 
-        const sellerItemsSold = saleHistory.filter(sale => sale.seller === seller.username);
+        const sellerItemsSold = saleHistory.filter(sale => sale.seller === seller.id);
         sellerItemsSold.forEach(sale => {
-            console.log("Sale:", sale); // Check if sale object is logged
-        
-            // Find the corresponding item in the items array
+            console.log("Sale:", sale); 
             const item = items.find(item => item.name === sale.itemName);
-            console.log("Item found:", item); // Check if item object is logged
+            console.log("Item found:", item); 
         
-            // If item is found, create HTML for item details and append it to sellerTable
             if (item) {
                 const itemRow = `
                     <tr>
@@ -70,3 +71,18 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+function deleteSellerAndItems(sellerId) {
+    const users = JSON.parse(localStorage.getItem('users'));
+    const updatedUsers = users.filter(user => user.id !== sellerId);
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+    const saleHistory = JSON.parse(localStorage.getItem('saleHistory'));
+    const updatedSaleHistory = saleHistory.filter(sale => sale.seller !== sellerId);
+    localStorage.setItem('saleHistory', JSON.stringify(updatedSaleHistory));
+
+    const items = JSON.parse(localStorage.getItem('items'));
+    const updatedItems = items.filter(item => item.seller_id !== sellerId);
+    localStorage.setItem('items', JSON.stringify(updatedItems));
+
+    location.reload();
+}

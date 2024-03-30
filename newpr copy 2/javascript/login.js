@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
       } else if (matchedUser.username.startsWith("admin")) {
         windowOpen = "admin.html";
       } else {
-        // Default redirection for other user types
         windowOpen = "index.html";
       }
       

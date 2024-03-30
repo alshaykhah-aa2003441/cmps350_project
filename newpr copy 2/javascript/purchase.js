@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const purchaseForm = document.querySelector('.purchaseform');
   const itemDetailsContainer = document.getElementById('item-details');
   const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
-  const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); // Assuming user data is stored during login
+  const currentUser = JSON.parse(sessionStorage.getItem('currentUser')); 
   const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
   const saleHistory = JSON.parse(localStorage.getItem('saleHistory')) || [];
   const users = JSON.parse(localStorage.getItem('users'))
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const item = items.findIndex(i => i.name === selectedItem.name)
     if (item !== -1){
-      if (quantity <= items[item].quantity) { // Check if requested quantity is available
+      if (quantity <= items[item].quantity) { 
         items[item].quantity -= quantity;
       } else {
         console.error('Requested quantity exceeds available quantity');
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //   localStorage.setItem('users', JSON.stringify(users));
     // }
     currentUser.balance -= totalPrice;
-    sessionStorage.setItem('currentUser', JSON.stringify(currentUser)); // Update user balance in localStorage
+    sessionStorage.setItem('currentUser', JSON.stringify(currentUser)); 
 
     localStorage.setItem('users', JSON.stringify(users))
     localStorage.setItem('items', JSON.stringify(items))
