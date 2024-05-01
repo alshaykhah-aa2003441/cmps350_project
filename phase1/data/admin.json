@@ -1,13 +1,11 @@
 [
     {
         "id": 1,  
-        "type": "admin",
         "username": "admin1",
         "password": "adminpass1"
     },
     {
         "id": 2,  
-        "type": "admin",
         "username": "admin2",
         "password": "adminpass2"
     }

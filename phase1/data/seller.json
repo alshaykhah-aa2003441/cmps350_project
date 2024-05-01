@@ -1,7 +1,6 @@
 [
     {
         "id": 1,  
-        "type": "seller",
         "company_name": "ABC Inc.",
         "username": "seller1",
         "password": "sellerpass1",
@@ -9,7 +8,6 @@
     },
     {
         "id": 2,  
-        "type": "seller",
         "company_name": "ABC Inc.",
         "username": "seller2",
         "password": "sellerpass2",
@@ -17,7 +15,6 @@
     },
     {
         "id": 3,  
-        "type": "seller",
         "company_name": "ABC Inc.",
         "username": "seller3",
         "password": "sellerpass3",
