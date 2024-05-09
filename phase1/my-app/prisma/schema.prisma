@@ -39,16 +39,27 @@ model Admin {
   password String
 }
 
+// model Item {
+//   itemId       Int    @id @default(autoincrement())
+//   name     String 
+//   image    String
+//   quantity Int
+//   price    Float
+//   sellerId Int
+
+//   // an item can be added by one seller
+//   Seller Seller @relation(fields: [sellerId], references: [sellerId], onDelete: Cascade, onUpdate: Cascade)
+// }
 model Item {
   itemId       Int    @id @default(autoincrement())
-  name     String 
-  image    String
-  quantity Int
-  price    Float
-  sellerId Int
+  name         String
+  image        String
+  quantity     Int
+  price        Float
+  sellerId     Int
 
-  // an item can be added by one seller
-  Seller Seller @relation(fields: [sellerId], references: [sellerId], onDelete: Cascade, onUpdate: Cascade)
+  // Define the seller relation
+  seller       Seller @relation(fields: [sellerId], references: [sellerId])
 }
 
 model Purchase {
@@ -68,7 +79,5 @@ model Purchase {
   // relation
 
 }
-
-
 
 // add a model for sale?

@@ -10,7 +10,6 @@ const prisma = new PrismaClient()
 // getItemBySeller()+ getSellerItemCount()
 // getCustomerCountofItem()
 
-
 class EcommerceRepo {
     async getItems(){
         try {
@@ -74,3 +73,5 @@ class EcommerceRepo {
 
 
 }
+
+export default new EcommerceRepo ();
