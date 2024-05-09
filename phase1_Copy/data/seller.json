@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,  
+        "company_name": "ABC Inc.",
+        "username": "seller1",
+        "password": "sellerpass1",
+        "bank_account": 12345
+    },
+    {
+        "id": 2,  
+        "company_name": "ABC Inc.",
+        "username": "seller2",
+        "password": "sellerpass2",
+        "bank_account": 67890
+    },
+    {
+        "id": 3,  
+        "company_name": "ABC Inc.",
+        "username": "seller3",
+        "password": "sellerpass3",
+        "bank_account": 83785
+    }
+]
