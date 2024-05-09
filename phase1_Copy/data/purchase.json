@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "address" :"123 Main St, City, Country",
+        "buyerId" : 1,
+        "itemId": 1,
+        "phone": 68094541,
+        "price": 50,
+        "quantity": 2,
+        "sellerId": 3,
+        "zip": 0
+    },
+    {
+        "id": 2,
+        "address" :"456 Elm St, Town, Country",
+        "buyerId" : 2,
+        "itemId": 3,
+        "phone": 86313589,
+        "price": 70,
+        "quantity": 2,
+        "sellerId": 2,
+        "zip":0
+    },
+    {
+        "id": 3,
+        "address" :"123 Main St, City, Country",
+        "buyerId" : 3,
+        "itemId": 5,
+        "phone": 38592648,
+        "price": 50,
+        "quantity": 3,
+        "sellerId": 1,
+        "zip":0
+    }
+]
