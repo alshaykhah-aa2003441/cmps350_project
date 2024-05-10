@@ -2,12 +2,20 @@ import ecommerceRepo from "@/app/repo/ecommerce-repo"
 
 export async function GET(request){
     const { searchParams } = new URL(request.url)
-    const sellerId = searchParams.get('seller_id')
+    let filterType = [...searchParams.keys()][0]
+    let value = searchParams.get(filterType)
+
+    // const sellerId = searchParams.get()
     let response
-    if (sellerId){
-        response = await ecommerceRepo.getItemsBySellerId(sellerId) 
-    } else{
-        response = await ecommerceRepo.getItems()        
+    switch (filterType){
+        case 'seller_id':
+            response = await ecommerceRepo.getItemsBySellerId(value) 
+            break;
+        case 'name':
+            response = await ecommerceRepo.getItemByName(value)
+            break;
+        default:
+            response = await ecommerceRepo.getItems() 
     }
 
     // const items = await ecommerceRepo.getTotalItemCount()

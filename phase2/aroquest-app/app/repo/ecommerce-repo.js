@@ -22,6 +22,18 @@ class EcommerceRepo {
         }
     }
 
+    async getItemByName(name){
+        try {
+            return prisma.item.findUnique({
+                where: {
+                    name: name
+                }
+            })
+        } catch (error) {
+            return {error: error.message}
+        }
+    }
+
     async updateItem(id, item){
         try {
             return prisma.item.update({

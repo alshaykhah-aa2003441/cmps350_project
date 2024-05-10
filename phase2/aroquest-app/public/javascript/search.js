@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", async function() {
     try {
         const itemsResponse = await fetch('/api/items');
+        const items = await itemsResponse.json()
+        displayItems(items);
         if (!itemsResponse.ok) {
             throw new Error(`Error fetching items: ${itemsResponse.statusText}`);
-        }
-        const storedItems = await itemsResponse.json();
-        displayItems(storedItems);
+        }  
     } catch (error) {
         console.error('Error: Unable to fetch items:', error);
     }
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     }
 
     async function fetchItems(searchTerm) {
-        const response = await fetch(`/api/items?search=${searchTerm}`);
+        const response = await fetch(`/api/items?name=${searchTerm}`);
         if (!response.ok) {
             throw new Error(`Error fetching items: ${response.statusText}`);
         }
@@ -28,13 +28,17 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     async function handleSearch(event) {
         event.preventDefault();
-        const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+        const searchTerm = document.getElementById('search-input').value.trim();
+        alert(searchTerm)
         try {
             const filteredItems = await fetchItems(searchTerm);
-            if (filteredItems.length === 0) {
+            // if (filteredItems.length === 0) {
+            if (!filteredItems) {
                 displayNoResultsMessage();
-            } else {
-                displayItems(filteredItems);
+            } else if (filteredItems) {
+                display(filteredItems);
+            // }else {
+            //     displayItems(filteredItems);
             }
         } catch (error) {
             console.error('Error searching items:', error);
@@ -65,9 +69,14 @@ function displayItems(itemsToDisplay) {
         itemPrice.textContent = `$${item.price}`;
         const itemQuantity = document.createElement('p');
         itemQuantity.textContent = `Available quantity: ${item.quantity}`;
-
         itemList.appendChild(itemCard);
+
+        itemCard.appendChild(itemImg);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+        itemCard.appendChild(itemQuantity);
     });
+
 }
 
 function displayNoResultsMessage() {
@@ -76,4 +85,26 @@ function displayNoResultsMessage() {
     const noResultsMessage = document.createElement('p');
     noResultsMessage.textContent = 'No items found.';
     itemList.appendChild(noResultsMessage);
+}
+
+function display(item) {
+    const itemList = document.querySelector('.item_list');
+    itemList.innerHTML = '';
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('item_card');
+    const itemImg = document.createElement('img');
+    itemImg.src = item.image;
+    itemImg.alt = item.name;
+    const itemName = document.createElement('h3');
+    itemName.textContent = item.name;
+    const itemPrice = document.createElement('p');
+    itemPrice.textContent = `$${item.price}`;
+    const itemQuantity = document.createElement('p');
+    itemQuantity.textContent = `Available quantity: ${item.quantity}`;
+
+    itemCard.appendChild(itemImg);
+    itemCard.appendChild(itemName);
+    itemCard.appendChild(itemPrice);
+    itemCard.appendChild(itemQuantity);
+    itemList.appendChild(itemCard);
 }
