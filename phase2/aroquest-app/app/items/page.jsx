@@ -32,7 +32,7 @@ export default function Items() {
   return (
     <>
     <header>   
-        <div id="ourBrand"  class="brand-container">
+        <div id="ourBrand"  className={styles.brandContainer}>
           {/* <img src="icons/logo.png" alt="logo" id="home-logo"/> */}
           <h1>aro<span className={styles.maroon}>Q</span>uest</h1>
         </div>
