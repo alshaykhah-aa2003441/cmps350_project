@@ -203,6 +203,12 @@ class EcommerceRepo {
         }
     }
 
+
+}
+
+export default new EcommerceRepo()
+
+
     // async updateSeller(seller, sellerId){
     //          try {
     //             return prisma.seller.update({
@@ -213,12 +219,6 @@ class EcommerceRepo {
     //             return {error: error.message}
     //         }
     // }
-}
-
-export default new EcommerceRepo()
-
-
-
 
 // getSellerItemCount()
 // addCustomer()
