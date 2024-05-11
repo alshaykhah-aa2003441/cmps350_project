@@ -1,4 +1,3 @@
-// import styles from "@/app/page.module.css"
 'use client'
 
 import styles from "@/public/style.css";
@@ -7,27 +6,57 @@ import React, {useState, useEffect} from "react";
 
 
 export default function page() {
-  async function handleStatSelection(){
+  const [selectedStat, setSelectedStat] = useState(null);
+  const [setData, setStatData] = useState(null);
 
+  const handleStatSelection = async (event) => {
+    const selectedStat = event.target.value
+    setSelectedStat(selectedStat)
+
+    switch (selectedStat) {
+      case "mostBoughtItems":
+          const mostBoughtItem = await ecommerceRepo.getMostPurchasedItem();
+          setStatData(mostBoughtItem);
+          break;
+      case "mostBoughtCustomer":
+          const mostPurchasedCustomer = await ecommerceRepo.getCustomerWithMostPurchases();
+          setStatData(mostPurchasedCustomer);
+          break;
+      case "mostsoldSeller":
+          const mostSoldSeller = await ecommerceRepo.getSellerWhoSoldMostItems()
+          setStatData(mostSoldSeller);
+          break;
+      case "neverBoughtItems":
+          const neverBoughtItems = await ecommerceRepo.getItemsNeverPurchased();
+          setStatData(neverBoughtItems)
+          break;
+      case "neverBoughtItems":
+          const neverBoughtCustomer = await ecommerceRepo.getCustomersWhoNeverPurchasedItems();
+          setStatData(neverBoughtCustomer)
+          break;
+      case "allItems":
+          const allItems = await ecommerceRepo.getItems();
+          setStatData(allItems)
+          break;
+
+      
+    }
   }
 
-  const [mostPurchasedCustomer, setMostPurchasedCustomer] = useState(null);
-  const [mostBoughtItem, setMostBoughtItem] = useState(null);
-  // Add state variables for other statistics as needed
 
-  useEffect(() => {
-      // Fetch most purchased customer
-      ecommerceRepo.getCustomerWithMostPurchases().then((customer) => {
-          setMostPurchasedCustomer(customer);
-      });
+  // useEffect(() => {
+  //     // Fetch most purchased customer
+  //     ecommerceRepo.getCustomerWithMostPurchases().then((customer) => {
+  //         setMostPurchasedCustomer(customer);
+  //     });
 
-      // Fetch most bought item
-      ecommerceRepo.getMostPurchasedItem().then((item) => {
-          setMostBoughtItem(item);
-      });
+  //     // Fetch most bought item
+  //     ecommerceRepo.getMostPurchasedItem().then((item) => {
+  //         setMostBoughtItem(item);
+  //     });
 
-      // Fetch other statistics as needed
-  }, []);
+  //     // Fetch other statistics as needed
+  // }, []);
 
   return (
       <div>
@@ -41,20 +70,20 @@ export default function page() {
                 <img src="icons/home.svg" alt="Home"/>
             </a>
         </div> 
-      </header>
-      <main class="admin-container" id="charts">
-      <h1>Admin Page</h1>
+        </header>
+        <main class="admin-container" id="charts">
+          <h1>Admin Page</h1>
           <label for="statsDropdown">Select Stat:</label>
           <select id="statsDropdown" onchange={e => handleStatSelection}>
             <option value="allItems">All Items</option>
-            <option value="allcustomers">All Customers</option>
+            {/* <option value="allcustomers">All Customers</option> */}
             <option value="mostBoughtItems">Most Purchased Item</option>
             <option value="neverBoughtCustomer">Customer Never Purchased</option>
             <option value="mostBoughtCustomer">Most Customer with purchases</option>
             <option value="mostsoldSeller">Seller with most sold ietms</option>
             <option value="neverBoughtItems">Items Never purchased</option>
           </select>
-          <div>
+          {/* <div>
               <h2>Most Purchased Customer</h2>
               {mostPurchasedCustomer ? (
                   <p>{mostPurchasedCustomer.name}</p>
@@ -69,11 +98,9 @@ export default function page() {
               ) : (
                   <p>Loading...</p>
               )}
-          </div>
+          </div> */}
 
-      </main>
-          
-          {/* Render other statistics as needed */}
+        </main>          
       </div>
   );
 }
