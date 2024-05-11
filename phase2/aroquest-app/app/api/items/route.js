@@ -5,7 +5,6 @@ export async function GET(request){
     let filterType = [...searchParams.keys()][0]
     let value = searchParams.get(filterType)
 
-    // const sellerId = searchParams.get()
     let response
     switch (filterType){
         case 'seller_id':

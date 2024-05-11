@@ -2,15 +2,16 @@
 
 import styles from "@/public/style.css";
 import ecommerceRepo from "@/app/repo/ecommerce-repo";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 
 export default function page() {
   const [selectedStat, setSelectedStat] = useState(null);
-  const [setData, setStatData] = useState(null);
+  const [stateData, setStatData] = useState(null);
 
   const handleStatSelection = async (event) => {
     const selectedStat = event.target.value
+    alert(selectedStat);
     setSelectedStat(selectedStat)
 
     switch (selectedStat) {
@@ -37,22 +38,38 @@ export default function page() {
       case "allItems":
           const allItems = await ecommerceRepo.getItems();
           setStatData(allItems)
-          break;
-
-      
+          break;  
     }
   }
 
+// Function to render data based on the selected stat
+const renderStatData = () => {
+  if (!stateData) return null;
 
+  switch (selectedStat) {
+      case "mostBoughtItems":
+          return <p>Most Bought Item: {stateData.name}</p>;
+      case "mostBoughtCustomer":
+          return <p>Most Purchased Customer: {stateData.name}</p>;
+      case "mostsoldSeller":
+          return <p>Seller with most sold items: {stateData.name}</p>;
+      case "neverBoughtItems":
+          return <p>Items Never Purchased: {JSON.stringify(stateData)}</p>;
+      case "neverBoughtCustomer":
+          return <p>Customers who never purchased: {JSON.stringify(stateData)}</p>;
+      default:
+          return null;
+  }
+};
   // useEffect(() => {
   //     // Fetch most purchased customer
   //     ecommerceRepo.getCustomerWithMostPurchases().then((customer) => {
-  //         setMostPurchasedCustomer(customer);
+  //         setStatData(customer);
   //     });
 
   //     // Fetch most bought item
   //     ecommerceRepo.getMostPurchasedItem().then((item) => {
-  //         setMostBoughtItem(item);
+  //         setStatData(customer)
   //     });
 
   //     // Fetch other statistics as needed
@@ -74,15 +91,23 @@ export default function page() {
         <main class="admin-container" id="charts">
           <h1>Admin Page</h1>
           <label for="statsDropdown">Select Stat:</label>
-          <select id="statsDropdown" onchange={e => handleStatSelection}>
+          <select id="statsDropdown" onchange={handleStatSelection}>
             <option value="allItems">All Items</option>
-            {/* <option value="allcustomers">All Customers</option> */}
             <option value="mostBoughtItems">Most Purchased Item</option>
             <option value="neverBoughtCustomer">Customer Never Purchased</option>
             <option value="mostBoughtCustomer">Most Customer with purchases</option>
             <option value="mostsoldSeller">Seller with most sold ietms</option>
             <option value="neverBoughtItems">Items Never purchased</option>
           </select>
+          <div>
+              <h2>{selectedStat ? `Selected Stat: ${selectedStat}` : "Please select a stat"}</h2>
+              {renderStatData()} {/* Render the selected stat data */}
+              {/* {setData ? (
+                <p>{JSON.stringify(setData)}</p> // You can render the stat data here
+              ) : (  {renderStatData()} 
+              Render the selected stat data */}
+              {/* // <p>Select a stat to view data</p>)} */}
+          </div>
           {/* <div>
               <h2>Most Purchased Customer</h2>
               {mostPurchasedCustomer ? (
