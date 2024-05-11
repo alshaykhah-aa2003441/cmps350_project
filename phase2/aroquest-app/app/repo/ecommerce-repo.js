@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
-import fs from 'fs';
+// import fs from 'fs';
 
 
 class EcommerceRepo {
@@ -206,6 +206,16 @@ class EcommerceRepo {
             return { error: error.message };
         }
     }
+
+    async addCustomer(customer){
+        try {
+            return prisma.customer.create({
+                data: customer
+            })
+        } catch (error) {
+            return {error: error.message}
+        }
+    }
     
     async getTotalItemCount(){
         try {
@@ -266,7 +276,5 @@ export default new EcommerceRepo()
     // }
 
 // getSellerItemCount()
-// addCustomer()
-// update/deleteSellerInfo(onDelete/seller item) 
 
 // get the item that the customer purchased => getPurchasesByCustomer + getPurchasesByItem
