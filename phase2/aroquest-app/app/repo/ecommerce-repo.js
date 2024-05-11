@@ -1,5 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
+import fs from 'fs';
+
 
 class EcommerceRepo {
     async getItems(){
@@ -215,8 +217,39 @@ class EcommerceRepo {
         }
     }
 
+    // async saveUser(userData) {
+    //     try {
+    //         // Read existing users data from users.json
+    //         let usersData = [];
+    //         try {
+    //             usersData = JSON.parse(fs.readFileSync('users.json'));
+    //         } catch (error) {
+    //             console.error('Error reading users data:', error);
+    //             // If file doesn't exist or cannot be parsed, initialize with empty array
+    //             usersData = [];
+    //         }
+    
+    //         // Ensure ID uniqueness (Example: finding max ID and incrementing)
+    //         const maxId = usersData.length > 0 ? Math.max(...usersData.map(user => user.id)) : 0;
+    //         userData.id = maxId + 1;
+    
+    //         // Add new user to the array
+    //         usersData.push(userData);
+    
+    //         // Write updated users data back to users.json
+    //         fs.writeFileSync('users.json', JSON.stringify(usersData, null, 2));
+    
+    //         return { success: true, message: 'User saved successfully.', user: userData };
+    //     } catch (error) {
+    //         console.error('Error saving user:', error);
+    //         return { success: false, error: 'Failed to save user.' };
+    //     }
+    // }
+    
 
 }
+
+
 
 export default new EcommerceRepo()
 

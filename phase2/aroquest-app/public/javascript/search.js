@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     try {
         const itemsResponse = await fetch('/api/items');
         const items = await itemsResponse.json()
+        console.log(items);
         displayItems(items);
         if (!itemsResponse.ok) {
             throw new Error(`Error fetching items: ${itemsResponse.statusText}`);
@@ -87,24 +88,47 @@ function displayNoResultsMessage() {
     itemList.appendChild(noResultsMessage);
 }
 
-function display(item) {
+function display(items) {
     const itemList = document.querySelector('.item_list');
     itemList.innerHTML = '';
-    const itemCard = document.createElement('div');
-    itemCard.classList.add('item_card');
-    const itemImg = document.createElement('img');
-    itemImg.src = item.image;
-    itemImg.alt = item.name;
-    const itemName = document.createElement('h3');
-    itemName.textContent = item.name;
-    const itemPrice = document.createElement('p');
-    itemPrice.textContent = `$${item.price}`;
-    const itemQuantity = document.createElement('p');
-    itemQuantity.textContent = `Available quantity: ${item.quantity}`;
 
-    itemCard.appendChild(itemImg);
-    itemCard.appendChild(itemName);
-    itemCard.appendChild(itemPrice);
-    itemCard.appendChild(itemQuantity);
-    itemList.appendChild(itemCard);
+    if (Array.isArray(items)) {
+        items.forEach(item => {
+            const itemCard = document.createElement('div');
+            itemCard.classList.add('item_card');
+            const itemImg = document.createElement('img');
+            itemImg.src = item.image;
+            itemImg.alt = item.name;
+            const itemName = document.createElement('h3');
+            itemName.textContent = item.name;
+            const itemPrice = document.createElement('p');
+            itemPrice.textContent = `$${item.price}`;
+            const itemQuantity = document.createElement('p');
+            itemQuantity.textContent = `Available quantity: ${item.quantity}`;
+
+            itemCard.appendChild(itemImg);
+            itemCard.appendChild(itemName);
+            itemCard.appendChild(itemPrice);
+            itemCard.appendChild(itemQuantity);
+            itemList.appendChild(itemCard);
+        });
+    } else {
+        const itemCard = document.createElement('div');
+        itemCard.classList.add('item_card');
+        const itemImg = document.createElement('img');
+        itemImg.src = items.image;
+        itemImg.alt = items.name;
+        const itemName = document.createElement('h3');
+        itemName.textContent = items.name;
+        const itemPrice = document.createElement('p');
+        itemPrice.textContent = `$${items.price}`;
+        const itemQuantity = document.createElement('p');
+        itemQuantity.textContent = `Available quantity: ${items.quantity}`;
+
+        itemCard.appendChild(itemImg);
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemPrice);
+        itemCard.appendChild(itemQuantity);
+        itemList.appendChild(itemCard);
+    }
 }

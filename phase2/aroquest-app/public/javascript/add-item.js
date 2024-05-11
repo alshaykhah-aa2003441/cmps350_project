@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const form = document.querySelector('.upload-form');
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', async function(event) {
         event.preventDefault();
         const name = document.getElementById('item-name').value.trim();
         const price = parseFloat(document.getElementById('price').value);
@@ -133,23 +133,31 @@ document.addEventListener('DOMContentLoaded', function() {
             "name": name,
             "price": price,
             "quantity": quantity,
-            "seller" : currentUser.id,
+            "seller_id": currentUser.id,
             "image": "icons/" + imageFiles[0].name 
         };
 
-        
-        let items = JSON.parse(localStorage.getItem('items')) || [];
-        const itemIndex = items.findIndex(item => item.name === name)
-        if (itemIndex !== -1){ 
-            items[itemIndex].quantity += quantity
-            alert('Quantity updated successfully'); 
-        } else{
-            items.push(newItem);
+        try {
+            const response = await fetch('/api/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newItem)
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error adding item: ${response.statusText}`);
+            }
+
+            const responseData = await response.json();
             alert('New item added successfully!');
+            form.reset();
+            console.log('Response data:', responseData);
+            window.location.href = 'seller.html';
+        } catch (error) {
+            console.error('Error adding item:', error);
+            alert('Error adding item. Please try again.');
         }
-        localStorage.setItem('items', JSON.stringify(items));
-        form.reset();
-        console.log('Updated items array:', items);
-        window.location.href = 'seller.html';
     });
 });
