@@ -53,9 +53,22 @@
 //   "bank_account": 67890
 // }];
 
-localStorage.setItem('users', JSON.stringify(users));
 
-document.addEventListener("DOMContentLoaded", function() {
+// localStorage.setItem('users', JSON.stringify(users));
+// console.log(JSON.stringify(users));
+// console.log(localStorage.getItem('users'));
+
+document.addEventListener("DOMContentLoaded", async function() {
+  const users = await fetchUsers()
+  console.log(users);
+  async function fetchUsers() {
+    const response = await fetch(`/api/users`);
+    if (!response.ok) {
+      throw new Error(`Error fetching users: ${response.statusText}`);
+    }
+    return response.json();
+  }
+
   const loginForm = document.getElementById("loginForm");
   const cancelButton = document.getElementById("cancelButton");
 

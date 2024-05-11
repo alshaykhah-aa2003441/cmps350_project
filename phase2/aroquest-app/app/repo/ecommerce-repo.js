@@ -227,6 +227,103 @@ class EcommerceRepo {
         }
     }
 
+    async getMostPurchasedItem(){
+        try {
+            const purchases = await prisma.purchase.groupBy({
+                by: ['itemId'],
+                _count: {
+                    _all: true
+                }
+            });
+            const mostBoughtItemId = purchases.reduce((prev, current) =>
+                prev._count._all > current._count._all ? prev : current
+            ); 
+            return await prisma.item.findUnique({
+                where: {
+                    id: mostBoughtItemId.itemId
+                }
+            });
+            // return prisma.purchase.groupBy({
+            //     by: ['itemId'],
+            //     _count: {_all: true},
+            //     where: {
+                    
+            //     }
+            // })
+        } catch (error) {
+            return {error: error.message}
+        }
+    }    
+
+    async getItemsNeverPurchased() {
+        try {
+            const allItems = await prisma.item.findMany();
+            const purchases = await prisma.purchase.findMany();
+            const purchasedItemIds = new Set(purchases.map(purchase => purchase.itemId));
+            const itemsNeverPurchased = allItems.filter(item => !purchasedItemIds.has(item.id));
+            
+            return itemsNeverPurchased;
+        } catch (error) {
+            return { error: error.message };
+        }
+    }
+
+    async getCustomerWithMostPurchases(){
+        try {
+            const purchases = await prisma.purchase.groupBy({
+                by: ['buyerId'],
+                _count: {
+                    _all: true
+                }
+            });
+            const mostPurchasedCustomerId = purchases.reduce((prev, current) =>
+                prev._count._all > current._count._all ? prev : current
+            ); 
+            return await prisma.customer.findUnique({
+                where: {
+                    id: mostPurchasedCustomerId.buyerId
+                }
+            });
+        } catch (error) {
+            return {error: error.message}
+        }
+    } 
+
+    async getCustomersWhoNeverPurchasedItems() {
+        try {
+            const allCustomers = await prisma.customer.findMany();
+            const purchases = await prisma.purchase.findMany();
+            const purchasedItemIds = new Set(purchases.map(purchase => purchase.itemId));
+            const customersWhoNeverPurchased = allCustomers.filter(customer => {
+                const customerPurchasedItemIds = new Set(purchases.filter(purchase => purchase.buyerId === customer.id).map(purchase => purchase.itemId));
+                return ![...customerPurchasedItemIds].some(itemId => purchasedItemIds.has(itemId));
+            });
+            
+            return customersWhoNeverPurchased;
+        } catch (error) {
+            return { error: error.message };
+        }
+    }
+
+    async getSellerWhoSoldMostItems() {
+        try {
+            const allItems = await prisma.item.findMany();
+            const itemCountsBySeller = allItems.reduce((acc, item) => {
+                acc[item.sellerId] = (acc[item.sellerId] || 0) + 1;
+                return acc;
+            }, {});
+    
+            const sellerWithMostItems = Object.keys(itemCountsBySeller).reduce((a, b) => itemCountsBySeller[a] > itemCountsBySeller[b] ? a : b);
+            const seller = await prisma.seller.findUnique({ where: { id: parseInt(sellerWithMostItems) } });
+    
+            return seller;
+        } catch (error) {
+            return { error: error.message };
+        }
+    }
+    
+
+
     // async saveUser(userData) {
     //     try {
     //         // Read existing users data from users.json
@@ -255,11 +352,8 @@ class EcommerceRepo {
     //         return { success: false, error: 'Failed to save user.' };
     //     }
     // }
-    
 
 }
-
-
 
 export default new EcommerceRepo()
 

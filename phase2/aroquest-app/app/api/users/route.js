@@ -5,7 +5,7 @@ import usersRepo from "@/app/repo/users-repo";
 export async function GET(request) {
   // Get users from the repository
   const users = await usersRepo.getUsers();
-
+  console.log(users);
   // Return the users as a JSON response
   return Response.json(users, { status: 200 });
 }

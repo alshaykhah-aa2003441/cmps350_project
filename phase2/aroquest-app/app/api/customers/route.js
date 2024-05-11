@@ -9,5 +9,10 @@ export async function GET(request){
     } else{
         response = await ecommerceRepo.getCustomers()        
     }
+    const customer = await ecommerceRepo.getCustomerWithMostPurchases()
+    console.log(customer);
+
+    // const customerr = await ecommerceRepo.getCustomerNeverPurchased()
+    // console.log(customerr);
     return Response.json(response, {status: 200})
 }

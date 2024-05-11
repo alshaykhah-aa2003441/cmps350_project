@@ -17,6 +17,8 @@ export async function GET(request){
         default:
             response = await ecommerceRepo.getItems() 
     }
+    const item = await ecommerceRepo.getMostPurchasedItem()
+    console.log(item);
 
     // const items = await ecommerceRepo.getTotalItemCount()
     // return Response.json(items, {status: 200})

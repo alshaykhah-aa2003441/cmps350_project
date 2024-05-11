@@ -23,6 +23,44 @@
     <main class="admin-container" id="charts">
         <h1>Admin Dashboard</h1>
         <div id="sellerTables"></div> 
+        <label for="statsDropdown">Select Stat:</label>
+    <select id="statsDropdown" onchange="handleStatSelection()">
+        <option value="allItems">All Items</option>
+        <option value="mostBoughtProducts">Most Bought Products</option>
+        <!-- Add more options for other stats -->
+    </select>
+    <div id="statDisplay"></div>
+
+    <script>
+        function handleStatSelection() {
+            const selectedStat = document.getElementById("statsDropdown").value;
+            fetchStat(selectedStat);
+        }
+
+        async function fetchStat(stat) {
+            try {
+                const response = await fetch(`/api/items`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch stat');
+                }
+                const data = await response.json();
+                displayStat(data);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function displayStat(statData) {
+            // Clear previous stat display
+            document.getElementById("statDisplay").innerHTML = '';
+            // Display the selected stat
+            const statDisplay = document.getElementById("statDisplay");
+            // Example: Displaying stat as text
+            const statText = document.createElement("p");
+            statText.textContent = JSON.stringify(statData);
+            statDisplay.appendChild(statText);
+        }
+    </script>
     </main>
 
     <footer>

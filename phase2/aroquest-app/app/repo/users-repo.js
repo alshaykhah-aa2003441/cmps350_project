@@ -1,18 +1,21 @@
 // Import the required modules
 import fs from 'fs';
 
-// Define the path to the users JSON file
-const usersFilePath = './data/users.json';
+  // Define the path to the users JSON file
+  const usersFilePath = '/data/users.json';
+
+class UsersRepo {
 
 // Function to get all users
-export async function getUsers() {
+async getUsers() {
   // Read the users JSON file
   const usersData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+  console.log(usersData);
   return usersData;
 }
 
 // Function to add a new user
-export async function addUser(newUser) {
+async addUser(newUser) {
   // Read the users JSON file
   const usersData = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
@@ -27,4 +30,7 @@ export async function addUser(newUser) {
   fs.writeFileSync(usersFilePath, JSON.stringify(usersData, null, 2));
 
   return newUser;
+}  
 }
+
+export default new UsersRepo()

@@ -8,7 +8,7 @@ export default function RootLayout({ children, isMainPage }) {
       </head>
       <body>
         {children}
-        <NavBar isMainPage={isMainPage}/>
+        {/* <NavBar isMainPage={isMainPage}/> */}
       </body>
     </html>
   );
